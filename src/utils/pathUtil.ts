@@ -40,19 +40,21 @@ export const getAllDirectories: () => Directory[] = () => {
   .map(([path, md]) => ({
     path: path.replace('../articles/', '').replace('index.md', '').replace(/\/$/, '') || undefined,
     title: md.frontmatter.title,
-    Content: md.Content
+    Content: md.Content,
+    rawContent: md.rawContent(),
   }));
 
   return directories;
 };
 
 export const getAllArticles: () => Article[] = () => {
-  const allArticles = import.meta.glob<MarkdownInstance>('../articles/**/[!index]*.md', { eager: true })
+  const allArticles = import.meta.glob<MarkdownInstance>('../articles/**/!(index).md', { eager: true })
   const articles = Object.entries(allArticles)
   .map(([path, md]) => ({
     path: path.replace('../articles/', '').replace('.md', ''),
     title: md.frontmatter.title,
-    Content: md.Content
+    Content: md.Content,
+    rawContent: md.rawContent(),
   }));
 
   return articles;
