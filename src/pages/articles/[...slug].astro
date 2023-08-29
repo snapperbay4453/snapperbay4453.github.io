@@ -2,6 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/composites/Header.astro';
 import Markdown from '@/composites/Markdown';
+import Button from '@/components/Button';
 import WidthLimiter from '@/components/WidthLimiter.astro';
 import {
   getParentPath,
@@ -39,11 +40,18 @@ const adjacentArticles = allArticles.filter((currentArticle: Article) => isAdjac
   <Header />
   <WidthLimiter>
     <section>
-      <h2>{article.title}</h2>
+      <Button
+        onClick={`/directories/${pathNode.parentPath}`}
+        client:visible
+      >
+        Go to parent directory
+      </Button>
+
+      <h2 class='mt-8'>{article.title}</h2>
       <p>/{pathNode.path}</p>
-      <p>Go to <a href=`/directories/${pathNode.parentPath}`>parent directory</a></p>
+      <Markdown rawContent={article.rawContent} client:load/>
       
-      <h3>Adjacent articles</h3>
+      <h3 class='mt-8'>Adjacent articles:</h3>
       <ol>
         {adjacentArticles.map((adjacentArticle: Article) => (
           <li>
@@ -51,8 +59,6 @@ const adjacentArticles = allArticles.filter((currentArticle: Article) => isAdjac
           </li>
         ))}
       </ol>
-
-      <Markdown rawContent={article.rawContent} client:load/>
     </section>
   </WidthLimiter>
 </Layout>

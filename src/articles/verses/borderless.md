@@ -1,6 +1,5 @@
 ---
 title: 경계가 없다는 것
-category: category01
 tags: markdown tag01 tag02
 ---
 

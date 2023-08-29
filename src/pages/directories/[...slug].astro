@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/composites/Header.astro';
+import Button from '@/components/Button';
 import WidthLimiter from '@/components/WidthLimiter.astro';
 import {
   getParentPath,
@@ -41,16 +42,26 @@ const childArticles = allArticles.filter((currentArticle: Article) => isChildPat
   <Header />
   <WidthLimiter>
     <section>
-      <h2>{directory.title}</h2>
-      <p>/{pathNode.path}</p>
-      <p>Go <a href=`/home`>home</a></p>
+      <Button
+        onClick='/home'
+        client:visible
+      >
+        Go home
+      </Button>
       {pathNode.path ? (
-        <p>Go to <a href=`/directories/${pathNode.parentPath}`>parent directory</a></p>
+        <Button
+          onClick={`/directories/${pathNode.parentPath}`}
+          client:visible
+        >
+          Go to parent directory
+        </Button>
       ) : <></>}
-  
+
+      <h2 class='mt-8'>{directory.title}</h2>
+      <p>/{pathNode.path}</p>
       <directory.Content />
       
-      <h3>Child directories</h3>
+      <h3 class='mt-8'>Child directories:</h3>
       <ol>
         {childDirectories.map((childDirectory: Directory) => (
           <li>
@@ -59,7 +70,7 @@ const childArticles = allArticles.filter((currentArticle: Article) => isChildPat
         ))}
       </ol>
   
-      <h3>Child articles</h3>
+      <h3 class='mt-8'>Child articles:</h3>
       <ol>
         {childArticles.map((childArticle: Article) => (
           <li>

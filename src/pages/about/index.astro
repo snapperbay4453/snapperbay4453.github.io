@@ -2,13 +2,19 @@
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/composites/Header.astro';
 import AstroLogo from '@/components/AstroLogo.astro';
+import Button from '@/components/Button';
 import WidthLimiter from '@/components/WidthLimiter.astro';
 ---
 
 <Layout title='Welcome to Astro.'>
   <Header />
   <WidthLimiter>
-    <p>Show <a href='https://github.com/snapperbay4453/snapperbay4453.github.io'>repository</a></p>
+    <Button
+      onClick='https://github.com/snapperbay4453/snapperbay4453.github.io'
+      client:visible
+    >
+      Show repository
+    </Button>
     <AstroLogo class='mx-auto' />
   </WidthLimiter>
 </Layout>
