@@ -48,8 +48,10 @@ const adjacentArticles = allArticles.filter((currentArticle: Article) => isAdjac
       </Button>
 
       <h2 class='mt-8'>{article.title}</h2>
-      <p>/{pathNode.path}</p>
-      <Markdown rawContent={article.rawContent} client:load/>
+      <Markdown
+        rawContent={article.rawContent}
+        client:load
+      />
       
       <h3 class='mt-8'>Adjacent articles:</h3>
       <ol>

@@ -2,6 +2,6 @@
 title: 스니펫
 ---
 
-# Header of root directory
+# 스니펫
 
-content of root directory
+코드 조각의 모음입니다.

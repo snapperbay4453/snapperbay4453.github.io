@@ -2,6 +2,6 @@
 title: 구절
 ---
 
-# Header of root directory
+# 구절
 
-content of root directory
+인상깊은 어록의 모음입니다.

@@ -34,7 +34,7 @@ export async function getStaticPaths() {
 }
 
 const { pathNode, directory, allDirectories, allArticles } = Astro.props;
-const childDirectories = allDirectories.filter((currentDirectory: Directory) => isChildPath(pathNode.path, currentDirectory.path));
+const childDirectories = allDirectories.filter((currentDirectory: Directory) => isChildPath(pathNode.path, currentDirectory.path ?? ''));
 const childArticles = allArticles.filter((currentArticle: Article) => isChildPath(pathNode.path, currentArticle.path));
 ---
 
