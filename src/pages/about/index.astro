@@ -1,14 +1,14 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/composites/Header.astro';
+import AstroLogo from '@/components/AstroLogo.astro';
 import WidthLimiter from '@/components/WidthLimiter.astro';
 ---
 
 <Layout title='Welcome to Astro.'>
   <Header />
   <WidthLimiter>
-    <p>안녕하세요.</p>
-    <p>블로그 제작 중입니다.</p>
-    <p>Go to <a href='/directories/'>root directory</a></p>
+    <p>Show <a href='https://github.com/snapperbay4453/snapperbay4453.github.io'>repository</a></p>
+    <AstroLogo class='mx-auto' />
   </WidthLimiter>
 </Layout>
