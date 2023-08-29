@@ -1,0 +1,67 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import {
+  getParentPath,
+  isChildPath,
+  getAllArticles,
+  getAllDirectories,
+} from '@/utils/pathUtil';
+import type { Article, Directory } from '@/types/file';
+
+export async function getStaticPaths() {
+  const allDirectories = getAllDirectories();
+  const allArticles = getAllArticles();
+  return allDirectories.map(({ path, title, Content }) => ({
+    params: {
+      slug: path
+    },
+    props: {
+      pathNode: {
+        path,
+        parentPath: getParentPath(path),
+      },
+      directory: {
+        title,
+        Content,
+      },
+      allDirectories,
+      allArticles,
+    },
+  }));
+}
+
+const { pathNode, directory, allDirectories, allArticles } = Astro.props;
+const childDirectories = allDirectories.filter((currentDirectory: Directory) => isChildPath(pathNode.path, currentDirectory.path));
+const childArticles = allArticles.filter((currentArticle: Article) => isChildPath(pathNode.path, currentArticle.path));
+---
+
+<Layout title="Welcome to Astro.">
+  <section>
+    <h2>{directory.title}</h2>
+    <p>/{pathNode.path}</p>
+    <p>Go <a href=`/home`>home</a></p>
+    {pathNode.path ? (
+      <p>Go to <a href=`/directories/${pathNode.parentPath}`>parent directory</a></p>
+    ) : <></>}
+
+    <directory.Content />
+    
+    <h3>Child directories</h3>
+    <ol>
+      {childDirectories.map((childDirectory: Directory) => (
+        <li>
+          <a href=`/directories/${childDirectory.path}`>{childDirectory.title}</a>
+        </li>
+      ))}
+    </ol>
+
+    <h3>Child articles</h3>
+    <ol>
+      {childArticles.map((childArticle: Article) => (
+        <li>
+          <a href=`/articles/${childArticle.path}`>{childArticle.title}</a>
+        </li>
+      ))}
+    </ol>
+  </section>
+</Layout>
