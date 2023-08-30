@@ -23,17 +23,17 @@ const { basePath, parentPath, breadcrumbs } = Astro.props
       <span>Go back</span>
     </a>
   )}
-    <div class='mt-2 first:mt-0'>
-      <a
-        class='block text-lg'
-        href={`${basePath}`}
-      >
-        <IconHomeOutlineRounded
-          style={{ display: 'inline-block', color: 'black' }}
-        />
-        {'홈'}
-      </a>
-      {breadcrumbs.map((breadcrumb: Breadcrumb, index: number) => (
+  <div class='mt-2 first:mt-0'>
+    <a
+      class='block text-lg'
+      href={`${basePath}`}
+    >
+      <IconHomeOutlineRounded
+        style={{ display: 'inline-block', color: 'black' }}
+      />
+      {'홈'}
+    </a>
+    {breadcrumbs.map((breadcrumb: Breadcrumb, index: number) => (
       <a
         class='block text-lg'
         href={`${basePath}/${breadcrumb.path}`}
