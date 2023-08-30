@@ -3,7 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import Header from '@/composites/Header.astro';
 import Button from '@/components/Button';
 import WidthLimiter from '@/components/WidthLimiter.astro';
-import IconFolder from '~icons/material-symbols/folder'
+import IconFolder from '~icons/material-symbols/folder';
 ---
 
 <Layout title='Welcome to Astro.'>
@@ -15,7 +15,7 @@ import IconFolder from '~icons/material-symbols/folder'
       onClick='/directories/'
       client:visible
     >
-      <IconFolder style={{ display: 'inline-block', color: 'white' }}/>
+      <IconFolder style={{ display: 'inline-block', color: 'white' }} />
       Go to root directory
     </Button>
   </WidthLimiter>

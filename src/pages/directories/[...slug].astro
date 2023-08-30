@@ -1,10 +1,12 @@
 ---
+import IconFolderOutlineRounded from '~icons/material-symbols/folder-outline-rounded';
+import IconLabProfileOutlineRounded from '~icons/material-symbols/lab-profile-outline-rounded';
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/composites/Header.astro';
 import Markdown from '@/composites/Markdown';
-import Button from '@/components/Button';
 import Card from '@/components/Card';
-import VerticalBreadcrumbs from '@/components/VerticalBreadcrumbs';
+import LeftSidebarAndMain from '@/components/LeftSidebarAndMain.astro';
+import VerticalBreadcrumbs from '@/components/VerticalBreadcrumbs.astro';
 import WidthLimiter from '@/components/WidthLimiter.astro';
 import {
   getParentPath,
@@ -47,52 +49,63 @@ const breadcrumbs = createBreadcrumbs(pathNode.path)
 <Layout title='Welcome to Astro.'>
   <Header />
   <WidthLimiter>
-    <VerticalBreadcrumbs
-      basePath='/directories'
-      breadcrumbs={breadcrumbs}
-    />
-    <section>
-      <Button
-        onClick='/home'
-        client:visible
-      >
-        Go home
-      </Button>
-      {pathNode.path ? (
-        <Button
-          onClick={`/directories/${pathNode.parentPath}`}
+    <LeftSidebarAndMain>
+      <div slot='left-sidebar'>
+        <VerticalBreadcrumbs
+          basePath='/directories'
+          parentPath={
+            pathNode.path
+            ? `/directories${pathNode.parentPath ? '/' : ''}${pathNode.parentPath}`
+            : undefined
+          }
+          breadcrumbs={breadcrumbs}
           client:visible
-        >
-          Go to parent directory
-        </Button>
-      ) : <></>}
-
-      <h2 class='mt-8'>{directory.title}</h2>
-      <p>/{pathNode.path}</p>
-      <Card>
-        <Markdown
-          rawContent={directory.rawContent}
-          client:load
         />
-      </Card>
-      
-      <h3 class='mt-8'>Child directories:</h3>
-      <ol>
-        {childDirectories.map((childDirectory: Directory) => (
-          <li>
-            <a href=`/directories/${childDirectory.path}`>{childDirectory.title}</a>
-          </li>
-        ))}
-      </ol>
-  
-      <h3 class='mt-8'>Child articles:</h3>
-      <ol>
-        {childArticles.map((childArticle: Article) => (
-          <li>
-            <a href=`/articles/${childArticle.path}`>{childArticle.title}</a>
-          </li>
-        ))}
-      </ol>
-    </section>
+      </div>
+      <section>
+        <Card>
+          <Markdown
+            rawContent={directory.rawContent}
+            client:load
+          />
+        </Card>
+        
+        <ol class='mt-4'>
+          {childDirectories.map((childDirectory: Directory) => (
+            <li class='mt-2 first:mt-0'>
+              <a
+                class='text-lg'
+                href=`/directories/${childDirectory.path}`
+              >
+                <IconFolderOutlineRounded
+                  style={{ display: 'inline-block', color: 'black' }}
+                />
+                {childDirectory.title}
+              </a>
+            </li>
+          ))}
+        </ol>
+    
+        <ol class='mt-4'>
+          {childArticles.map((childArticle: Article) => (
+            <li class='mt-2 first:mt-0'>
+              <a
+                class='text-lg'
+                href=`/articles/${childArticle.path}`
+              >
+                <IconLabProfileOutlineRounded
+                  style={{ display: 'inline-block', color: 'black' }}
+                />
+                {childArticle.title}
+              </a>
+            </li>
+          ))}
+        </ol>
+
+        {[...childDirectories, ...childArticles].length === 0 && (
+          '이 위치에서 표시할 정보가 없습니다.'
+        )}
+      </section>
+    </LeftSidebarAndMain>
   </WidthLimiter>
 </Layout>

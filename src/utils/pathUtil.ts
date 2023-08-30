@@ -91,5 +91,5 @@ export const createBreadcrumbs = (path = '') => {
     path: '',
   }]);
 
-  return breadcrumbs;
+  return breadcrumbs.slice(1);
 }
