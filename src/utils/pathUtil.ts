@@ -63,3 +63,33 @@ export const getAllArticles: () => Article[] = () => {
 
   return articles;
 };
+
+export interface Breadcrumb {
+  name: string;
+  path: string;
+}
+export const createBreadcrumbs = (path = '') => {
+  const allDirectories = getAllDirectories();
+  const parsedPath = path.replace(/^\/+/, '').replace(/\/+$/, '').split('/');
+  const breadcrumbs = parsedPath.reduce((acc: Breadcrumb[], token: string, index: number) => {
+    if(index === (parsedPath.length - 1) && !token) {
+      return acc;
+    }
+
+    const parentPath = acc[index].path;
+    const breadcrumbPath = `${parentPath}${parentPath ? '/' : ''}${token}`;
+    const breadcrumbName = allDirectories.find(directory => directory.path === breadcrumbPath)?.title ?? token;
+    return [
+      ...acc,
+      {
+        name: breadcrumbName,
+        path: breadcrumbPath,
+      }
+    ]
+  }, [{
+    name: 'root',
+    path: '',
+  }]);
+
+  return breadcrumbs;
+}

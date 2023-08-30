@@ -5,30 +5,11 @@ interface Breadcrumb {
 
 interface VerticalBreadcrumbsProps {
   basePath?: string;
-  path: string
+  breadcrumbs: Breadcrumb[]
 }
-export default function VerticalBreadcrumbs({ basePath = '', path = '' }: VerticalBreadcrumbsProps) {
-  const parsedPath = path.replace(/^\/+/, '').replace(/\/+$/, '').split('/');
-  const breadcrumbs = parsedPath.reduce((acc: Breadcrumb[], token: string, index: number) => {
-    if(index === (parsedPath.length - 1) && !token) {
-      return acc;
-    }
-
-    const parentPath = acc[index].path;
-    return [
-      ...acc,
-      {
-        name: token,
-        path: `${parentPath}${parentPath ? '/' : ''}${token}`,
-      }
-    ]
-  }, [{
-    name: 'root',
-    path: '',
-  }]);
+export default function VerticalBreadcrumbs({ basePath = '', breadcrumbs = [] }: VerticalBreadcrumbsProps) {
   return (
     <div>
-      {basePath + '/' + path}
       {breadcrumbs.map((breadcrumb, index) => (
         <div>
           <a
