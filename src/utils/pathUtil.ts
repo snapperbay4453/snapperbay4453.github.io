@@ -10,6 +10,8 @@ interface IsChildPathOptions {
   allowSibling?: boolean;
 }
 export const isChildPath = (parentPath: string, childPathCandidate: string, options: IsChildPathOptions = {}) => {
+  if(!childPathCandidate) return false;
+  
   const { allowSibling = false } = options;
 
   const parsedParentPath = parentPath?.split('/') ?? [];
@@ -24,6 +26,8 @@ interface IsAdjacentPathOptions {
   includeSelf?: boolean;
 }
 export const isAdjacentPath = (path: string, adjacentPathCandidate: string, options: IsAdjacentPathOptions = {}) => {
+  if(!adjacentPathCandidate) return false;
+  
   const { includeSelf = false } = options;
 
   const parsedPath = path?.split('/') ?? [];

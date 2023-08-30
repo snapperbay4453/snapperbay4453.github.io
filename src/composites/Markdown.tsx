@@ -12,6 +12,8 @@ import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-php';
 import 'prismjs/components/prism-scss';
 
+import Button from '@/components/Button';
+
 export default function Markdown(rawContent: { rawContent: string }) {
   const marked = new Marked(markedHighlight({
     highlight(code: string, lang: string = 'plaintext') {
@@ -26,11 +28,13 @@ export default function Markdown(rawContent: { rawContent: string }) {
   
   renderer.blockquote = function (quote: string) {
     return render(
-      <blockquote 
-        class='pl-4 border-l-4 border-indigo-500'
-        dangerouslySetInnerHTML={{__html: marked.parse(quote)}}
-      >
-      </blockquote>
+      <div class='p-2'>
+        <blockquote 
+          class='pl-4 border-l-4 border-indigo-500'
+          dangerouslySetInnerHTML={{__html: marked.parse(quote)}}
+        >
+        </blockquote>
+      </div>
     );
   };
   
@@ -38,27 +42,51 @@ export default function Markdown(rawContent: { rawContent: string }) {
     switch(level) {
       case 1:
         return render(
-          <h1>{text}</h1>
+          <h1
+            class='text-3xl font-bold'
+          >
+            {text}
+          </h1>
         )
       case 2:
         return render(
-          <h1>{text}</h1>
+          <h2
+            class='text-2xl font-bold'
+          >
+            {text}
+          </h2>
         )
       case 3:
         return render(
-          <h1>{text}</h1>
+          <h3
+            class='text-xl font-bold'
+          >
+            {text}
+          </h3>
         )
       case 4:
         return render(
-          <h1>{text}</h1>
+          <h4
+            class='font-bold'
+          >
+            {text}
+          </h4>
         )
       case 5:
         return render(
-          <h1>{text}</h1>
+          <h5
+            class='font-bold'
+          >
+            {text}
+          </h5>
         )
       case 6:
         return render(
-          <h1>{text}</h1>
+          <h6
+            class='font-bold'
+          >
+            {text}
+          </h6>
         )
       default:
         return render(
@@ -67,11 +95,63 @@ export default function Markdown(rawContent: { rawContent: string }) {
     }
   };
   
+  renderer.list = function (body: string, ordered: boolean, start: number) {
+    if(ordered) {
+      return render(
+        <ol
+          class='list-decimal pl-5'
+          dangerouslySetInnerHTML={{__html: marked.parse(body)}}
+        >
+        </ol>
+      );
+    } else {
+      return render(
+        <ul
+          class='list-disc pl-5'
+          dangerouslySetInnerHTML={{__html: marked.parse(body)}}
+        >
+        </ul>
+      );
+    }
+  };
+  
+  renderer.listitem = function (body: string, task: boolean, checked: boolean) {
+    return render(
+      <li
+        dangerouslySetInnerHTML={{__html: marked.parse(body)}}
+      >
+      </li>
+    );
+  };
+  
   renderer.paragraph = function (text: string) {
     return render(
-      <p>
-        {text}
+      <p
+        class='py-1'
+        dangerouslySetInnerHTML={{__html: marked.parse(text)}}
+      >
       </p>
+    );
+  };
+  
+  renderer.link = function (href: string, title: string, text: string) {
+    return render(
+      <Button
+        onClick={href}
+      >
+        {text}
+      </Button>
+    );
+  };
+  
+  renderer.image = function (href: string, title: string, text: string) {
+    return render(
+      <img
+        class='m-2'
+        src={href}
+      >
+        {text}
+      </img>
     );
   };
   
