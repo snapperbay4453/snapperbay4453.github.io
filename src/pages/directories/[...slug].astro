@@ -1,7 +1,10 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/composites/Header.astro';
+import Markdown from '@/composites/Markdown';
 import Button from '@/components/Button';
+import Card from '@/components/Card';
+import VerticalBreadcrumbs from '@/components/VerticalBreadcrumbs';
 import WidthLimiter from '@/components/WidthLimiter.astro';
 import {
   getParentPath,
@@ -14,7 +17,7 @@ import type { Article, Directory } from '@/types/file';
 export async function getStaticPaths() {
   const allDirectories = getAllDirectories();
   const allArticles = getAllArticles();
-  return allDirectories.map(({ path, title, Content }) => ({
+  return allDirectories.map(({ path, title, Content, rawContent }) => ({
     params: {
       slug: path
     },
@@ -26,6 +29,7 @@ export async function getStaticPaths() {
       directory: {
         title,
         Content,
+        rawContent,
       },
       allDirectories,
       allArticles,
@@ -41,6 +45,10 @@ const childArticles = allArticles.filter((currentArticle: Article) => isChildPat
 <Layout title='Welcome to Astro.'>
   <Header />
   <WidthLimiter>
+    <VerticalBreadcrumbs
+      basePath='/directories'
+      path={pathNode.path}
+    />
     <section>
       <Button
         onClick='/home'
@@ -59,7 +67,12 @@ const childArticles = allArticles.filter((currentArticle: Article) => isChildPat
 
       <h2 class='mt-8'>{directory.title}</h2>
       <p>/{pathNode.path}</p>
-      <directory.Content />
+      <Card>
+        <Markdown
+          rawContent={directory.rawContent}
+          client:load
+        />
+      </Card>
       
       <h3 class='mt-8'>Child directories:</h3>
       <ol>
