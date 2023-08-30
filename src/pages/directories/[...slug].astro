@@ -1,6 +1,4 @@
 ---
-import IconFolderOutlineRounded from '~icons/material-symbols/folder-outline-rounded';
-import IconLabProfileOutlineRounded from '~icons/material-symbols/lab-profile-outline-rounded';
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/composites/Header.astro';
 import Markdown from '@/composites/Markdown';
@@ -16,6 +14,10 @@ import {
   createBreadcrumbs,
 } from '@/utils/pathUtil';
 import type { Article, Directory } from '@/types/file';
+
+import IconArrowBackRounded from '~icons/material-symbols/arrow-back-rounded';
+import IconFolderOutlineRounded from '~icons/material-symbols/folder-outline-rounded';
+import IconLabProfileOutlineRounded from '~icons/material-symbols/lab-profile-outline-rounded';
 
 export async function getStaticPaths() {
   const allDirectories = getAllDirectories();
@@ -53,11 +55,6 @@ const breadcrumbs = createBreadcrumbs(pathNode.path)
       <div slot='left-sidebar'>
         <VerticalBreadcrumbs
           basePath='/directories'
-          parentPath={
-            pathNode.path
-            ? `/directories${pathNode.parentPath ? '/' : ''}${pathNode.parentPath}`
-            : undefined
-          }
           breadcrumbs={breadcrumbs}
           client:visible
         />
@@ -70,6 +67,23 @@ const breadcrumbs = createBreadcrumbs(pathNode.path)
           />
         </Card>
         
+        {pathNode.path && (
+
+          <ol class='mt-4'>
+            <li class='mt-2 first:mt-0'>
+              <a
+                class='text-lg'
+                href={`/directories${pathNode.parentPath ? '/' : ''}${pathNode.parentPath}`}
+              >
+                <IconArrowBackRounded
+                  style={{ display: 'inline-block', color: 'black' }}
+                />
+                <span>뒤로가기</span>
+              </a>
+            </li>
+          </ol>
+        )}
+
         <ol class='mt-4'>
           {childDirectories.map((childDirectory: Directory) => (
             <li class='mt-2 first:mt-0'>

@@ -3,20 +3,35 @@ import Layout from '@/layouts/Layout.astro';
 import Header from '@/composites/Header.astro';
 import Button from '@/components/Button';
 import WidthLimiter from '@/components/WidthLimiter.astro';
-import IconFolder from '~icons/material-symbols/folder';
+import IconArrowForwardRounded from '~icons/material-symbols/arrow-forward-rounded';
 ---
 
 <Layout title='Welcome to Astro.'>
   <Header />
-  <WidthLimiter>
-    <p>안녕하세요.</p>
-    <p>블로그 제작 중입니다.</p>
-    <Button
-      onClick='/directories/'
-      client:visible
-    >
-      <IconFolder style={{ display: 'inline-block', color: 'white' }} />
-      Go to root directory
-    </Button>
-  </WidthLimiter>
+  <div>
+    <WidthLimiter>
+      <div class='flex flex-col md:flex-row'>
+        <div class='grow flex flex-col justify-center items-center md:items-start gap-2 h-40'>
+          <p class='text-3xl font-bold ml-0 md:ml-16'>안녕하세요.</p>
+          <p class='text-2xl font-bold ml-0 md:ml-16'>블로그 제작 중입니다.</p>
+        </div>
+        <div class='grow flex justify-center items-start md:items-center gap-2 h-20 md:h-40'>
+          <Button
+            onClick='/directories'
+            client:visible
+          >
+            <IconArrowForwardRounded style={{ display: 'inline-block', color: 'white' }} />
+            Posts
+          </Button>
+          <Button
+            onClick='/about'
+            client:visible
+          >
+            <IconArrowForwardRounded style={{ display: 'inline-block', color: 'white' }} />
+            About
+          </Button>
+        </div>
+      </div>
+    </WidthLimiter>
+  </div>
 </Layout>
