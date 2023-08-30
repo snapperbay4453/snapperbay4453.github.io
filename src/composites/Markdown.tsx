@@ -43,7 +43,7 @@ export default function Markdown(rawContent: { rawContent: string }) {
       case 1:
         return render(
           <h1
-            class='text-3xl font-bold'
+            class='my-4 first:mt-0 last:mb-0 text-3xl font-bold'
           >
             {text}
           </h1>
@@ -51,7 +51,7 @@ export default function Markdown(rawContent: { rawContent: string }) {
       case 2:
         return render(
           <h2
-            class='text-2xl font-bold'
+            class='my-3 first:mt-0 last:mb-0 text-2xl font-bold'
           >
             {text}
           </h2>
@@ -59,7 +59,7 @@ export default function Markdown(rawContent: { rawContent: string }) {
       case 3:
         return render(
           <h3
-            class='text-xl font-bold'
+            class='my-2 first:mt-0 last:mb-0 text-xl font-bold'
           >
             {text}
           </h3>
@@ -67,7 +67,7 @@ export default function Markdown(rawContent: { rawContent: string }) {
       case 4:
         return render(
           <h4
-            class='font-bold'
+            class='my-1 first:mt-0 last:mb-0 font-bold'
           >
             {text}
           </h4>
@@ -75,7 +75,7 @@ export default function Markdown(rawContent: { rawContent: string }) {
       case 5:
         return render(
           <h5
-            class='font-bold'
+            class='my-1 first:mt-0 last:mb-0 font-bold'
           >
             {text}
           </h5>
@@ -83,7 +83,7 @@ export default function Markdown(rawContent: { rawContent: string }) {
       case 6:
         return render(
           <h6
-            class='font-bold'
+            class='my-1 first:mt-0 last:mb-0 font-bold'
           >
             {text}
           </h6>
