@@ -42,7 +42,7 @@ const adjacentArticles = allArticles.filter((currentArticle: Article) => isAdjac
 const breadcrumbs = createBreadcrumbs(pathNode.parentPath)
 ---
 
-<Layout title='Welcome to Astro.'>
+<Layout title={`${article.title} - snapperbay4453`}>
   <Header />
   <WidthLimiter>
     <LeftSidebarAndMain>

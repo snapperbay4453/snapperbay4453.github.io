@@ -1,7 +1,7 @@
 ---
-title: Root Directory
+title: 루트 디렉토리
 ---
 
-# Header of root directory
+# 루트 디렉토리
 
-content of root directory
+Single source of truth.
