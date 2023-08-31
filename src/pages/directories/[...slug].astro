@@ -59,65 +59,64 @@ const breadcrumbs = createBreadcrumbs(pathNode.path)
         />
       </div>
       <section>
-        <Card>
-          <Markdown
-            rawContent={directory.rawContent}
-            client:load
-          />
-        </Card>
+        <Markdown
+          rawContent={directory.rawContent}
+          client:load
+        />
         
-        {pathNode.path && (
-
+        <div class='mt-8'>
+          {pathNode.path && (
+            <ol class='mt-4'>
+              <li class='mt-2 first:mt-0'>
+                <a
+                  class='flex items-center gap-2 text-lg'
+                  href={`/directories${pathNode.parentPath ? '/' : ''}${pathNode.parentPath}`}
+                >
+                  <IconArrowBackRounded
+                    style={{ display: 'inline-block', color: 'black' }}
+                  />
+                  <span>상위 디렉토리</span>
+                </a>
+              </li>
+            </ol>
+          )}
+  
           <ol class='mt-4'>
-            <li class='mt-2 first:mt-0'>
-              <a
-                class='flex items-center gap-2 text-lg'
-                href={`/directories${pathNode.parentPath ? '/' : ''}${pathNode.parentPath}`}
-              >
-                <IconArrowBackRounded
-                  style={{ display: 'inline-block', color: 'black' }}
-                />
-                <span>상위 디렉토리</span>
-              </a>
-            </li>
+            {childDirectories.map((childDirectory: Directory) => (
+              <li class='mt-2 first:mt-0'>
+                <a
+                  class='flex items-center gap-2 text-lg'
+                  href=`/directories/${childDirectory.path}`
+                >
+                  <IconFolderOutlineRounded
+                    style={{ display: 'inline-block', color: 'black' }}
+                  />
+                  <span>{childDirectory.title}</span>
+                </a>
+              </li>
+            ))}
           </ol>
-        )}
-
-        <ol class='mt-4'>
-          {childDirectories.map((childDirectory: Directory) => (
-            <li class='mt-2 first:mt-0'>
-              <a
-                class='flex items-center gap-2 text-lg'
-                href=`/directories/${childDirectory.path}`
-              >
-                <IconFolderOutlineRounded
-                  style={{ display: 'inline-block', color: 'black' }}
-                />
-                <span>{childDirectory.title}</span>
-              </a>
-            </li>
-          ))}
-        </ol>
-    
-        <ol class='mt-4'>
-          {childArticles.map((childArticle: Article) => (
-            <li class='mt-2 first:mt-0'>
-              <a
-                class='flex items-center gap-2 text-lg'
-                href=`/articles/${childArticle.path}`
-              >
-                <IconLabProfileOutlineRounded
-                  style={{ display: 'inline-block', color: 'black' }}
-                />
-                {childArticle.title}
-              </a>
-            </li>
-          ))}
-        </ol>
-
-        {[...childDirectories, ...childArticles].length === 0 && (
-          '이 위치에서 표시할 정보가 없습니다.'
-        )}
+      
+          <ol class='mt-4'>
+            {childArticles.map((childArticle: Article) => (
+              <li class='mt-2 first:mt-0'>
+                <a
+                  class='flex items-center gap-2 text-lg'
+                  href=`/articles/${childArticle.path}`
+                >
+                  <IconLabProfileOutlineRounded
+                    style={{ display: 'inline-block', color: 'black' }}
+                  />
+                  {childArticle.title}
+                </a>
+              </li>
+            ))}
+          </ol>
+  
+          {[...childDirectories, ...childArticles].length === 0 && (
+            '이 위치에서 표시할 정보가 없습니다.'
+          )}
+        </div>
       </section>
     </LeftSidebarAndMain>
   </WidthLimiter>
