@@ -1,0 +1,11 @@
+---
+import ArticleSearchBarInner from './ArticleSearchBarInner';
+
+import {
+  getAllArticles,
+} from '@/utils/pathUtil';
+
+const allArticles = getAllArticles();
+---
+
+<ArticleSearchBarInner client:visible articles={allArticles} />

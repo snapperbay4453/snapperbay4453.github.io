@@ -4,4 +4,4 @@ title: 루트 디렉토리
 
 # 루트 디렉토리
 
-Single source of truth.
+진리의 원천입니다.
