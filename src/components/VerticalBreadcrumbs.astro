@@ -25,17 +25,17 @@ const { basePath, parentPath, breadcrumbs } = Astro.props
   )}
   <div class='mt-2 first:mt-0'>
     <a
-      class='block text-lg'
+      class='flex items-center gap-2 text-lg'
       href={`${basePath}`}
     >
       <IconHomeOutlineRounded
         style={{ display: 'inline-block', color: 'black' }}
       />
-      {'홈'}
+      <span>{'루트 디렉토리'}</span>
     </a>
     {breadcrumbs.map((breadcrumb: Breadcrumb, index: number) => (
       <a
-        class='block text-lg'
+        class='flex items-center gap-2 text-lg'
         href={`${basePath}/${breadcrumb.path}`}
       >
         <IconSubdirectoryArrowRightRounded

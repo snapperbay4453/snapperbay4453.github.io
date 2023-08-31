@@ -136,11 +136,12 @@ export default function Markdown(rawContent: { rawContent: string }) {
   
   renderer.link = function (href: string, title: string, text: string) {
     return render(
-      <Button
-        onClick={href}
+      <a
+        class='underline'
+        href={href}
       >
         {text}
-      </Button>
+      </a>
     );
   };
   

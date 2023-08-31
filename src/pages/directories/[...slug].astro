@@ -71,13 +71,13 @@ const breadcrumbs = createBreadcrumbs(pathNode.path)
           <ol class='mt-4'>
             <li class='mt-2 first:mt-0'>
               <a
-                class='text-lg'
+                class='flex items-center gap-2 text-lg'
                 href={`/directories${pathNode.parentPath ? '/' : ''}${pathNode.parentPath}`}
               >
                 <IconArrowBackRounded
                   style={{ display: 'inline-block', color: 'black' }}
                 />
-                <span>뒤로가기</span>
+                <span>상위 디렉토리</span>
               </a>
             </li>
           </ol>
@@ -87,13 +87,13 @@ const breadcrumbs = createBreadcrumbs(pathNode.path)
           {childDirectories.map((childDirectory: Directory) => (
             <li class='mt-2 first:mt-0'>
               <a
-                class='text-lg'
+                class='flex items-center gap-2 text-lg'
                 href=`/directories/${childDirectory.path}`
               >
                 <IconFolderOutlineRounded
                   style={{ display: 'inline-block', color: 'black' }}
                 />
-                {childDirectory.title}
+                <span>{childDirectory.title}</span>
               </a>
             </li>
           ))}
@@ -103,7 +103,7 @@ const breadcrumbs = createBreadcrumbs(pathNode.path)
           {childArticles.map((childArticle: Article) => (
             <li class='mt-2 first:mt-0'>
               <a
-                class='text-lg'
+                class='flex items-center gap-2 text-lg'
                 href=`/articles/${childArticle.path}`
               >
                 <IconLabProfileOutlineRounded
