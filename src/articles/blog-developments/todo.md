@@ -7,6 +7,8 @@ tags: markdown tag01 tag02
 
 ## 추가 기능
 
+* 목차 생성 기능
+
 * 검색
   * 문서 제목 및 태그
   * [https://www.fusejs.io/](https://www.fusejs.io/)
