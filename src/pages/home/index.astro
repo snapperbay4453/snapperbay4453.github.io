@@ -1,46 +1,41 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import RootLayout from '@/layouts/RootLayout.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
 import ArticleSearchBar from '@/composites/ArticleSearchBar.astro';
 import Header from '@/composites/Header.astro';
 import Button from '@/components/Button';
-import WidthLimiter from '@/components/WidthLimiter.astro';
-import IconArrowForwardRounded from '~icons/material-symbols/arrow-forward-rounded';
 ---
 
-<Layout title={`${'Home'} - snapperbay4453`}>
+<RootLayout title={`${'Home'} - snapperbay4453`}>
   <Header />
-  <div>
-    <WidthLimiter>
-      <div class='flex flex-col sm:flex-row max-w-3xl mx-auto'>
-        <div class='grow flex flex-col justify-center items-center sm:items-start gap-2 h-40 sm:w-1/2'>
-          <p class='text-3xl font-bold ml-0 sm:ml-16'>반갑습니다👋</p>
-          <p class='text-2xl font-bold ml-0 sm:ml-16'>이곳은 제 진리의 원천입니다.</p>
-        </div>
-        <div class='grow flex justify-center items-start sm:items-center gap-2 h-20 sm:h-40 sm:w-1/2'>
-          <Button
-            onClick='/directories'
-            client:visible
-          >
-            <IconArrowForwardRounded style={{ display: 'inline-block', color: 'white' }} />
-            Posts
-          </Button>
-          <Button
-            onClick='/about'
-            client:visible
-          >
-            <IconArrowForwardRounded style={{ display: 'inline-block', color: 'white' }} />
-            About
-          </Button>
-        </div>
+  <MainLayout>
+    <div class='flex flex-col sm:flex-row max-w-3xl mx-auto'>
+      <div class='grow flex flex-col justify-center items-center sm:items-start gap-2 h-40 sm:w-1/2'>
+        <p class='text-3xl font-bold ml-0 sm:ml-16'>반갑습니다👋</p>
+        <p class='text-2xl font-bold ml-0 sm:ml-16'>이곳은 제 진리의 원천입니다.</p>
       </div>
-    </WidthLimiter>
-    <WidthLimiter>
-      <div class='flex flex-col items-center'>
-        <p class='text-3xl font-bold'>검색</p>
-        <div class='mt-4'>
-          <ArticleSearchBar />
-        </div>
+      <div class='grow flex justify-center items-start sm:items-center gap-2 h-20 sm:h-40 sm:w-1/2'>
+        <Button
+          onClick='/directories'
+          client:visible
+        >
+          Posts
+          <i class='icon-[material-symbols--arrow-forward-rounded] text-white'></i>
+        </Button>
+        <Button
+          onClick='/about'
+          client:visible
+        >
+          About
+          <i class='icon-[material-symbols--arrow-forward-rounded] text-white'></i>
+        </Button>
       </div>
-    </WidthLimiter>
-  </div>
-</Layout>
+    </div>
+    <div class='flex flex-col items-center'>
+      <p class='text-3xl font-bold'>검색</p>
+      <div class='mt-4'>
+        <ArticleSearchBar />
+      </div>
+    </div>
+  </MainLayout>
+</RootLayout>

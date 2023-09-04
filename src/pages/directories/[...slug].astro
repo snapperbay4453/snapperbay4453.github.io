@@ -1,11 +1,9 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import ArticleSearchBar from '@/composites/ArticleSearchBar.astro';
+import RootLayout from '@/layouts/RootLayout.astro';
 import Header from '@/composites/Header.astro';
-import Markdown from '@/composites/Markdown';
-import LeftSidebarAndMain from '@/components/LeftSidebarAndMain.astro';
-import VerticalBreadcrumbs from '@/components/VerticalBreadcrumbs.astro';
-import WidthLimiter from '@/components/WidthLimiter.astro';
+import Markdown from '@/components/Markdown';
+import LeftSidebarAndMainLayout from '@/layouts/LeftSidebarAndMainLayout.astro';
+import VerticalBreadcrumbs from '@/components/VerticalBreadcrumbs';
 import {
   getParentPath,
   isChildPath,
@@ -14,10 +12,6 @@ import {
   createBreadcrumbs,
 } from '@/utils/pathUtil';
 import type { Article, Directory } from '@/types/file';
-
-import IconArrowBackRounded from '~icons/material-symbols/arrow-back-rounded';
-import IconFolderOutlineRounded from '~icons/material-symbols/folder-outline-rounded';
-import IconLabProfileOutlineRounded from '~icons/material-symbols/lab-profile-outline-rounded';
 
 export async function getStaticPaths() {
   const allDirectories = getAllDirectories();
@@ -48,76 +42,69 @@ const childArticles = allArticles.filter((currentArticle: Article) => isChildPat
 const breadcrumbs = createBreadcrumbs(pathNode.path)
 ---
 
-<Layout title={`${directory.title} - snapperbay4453`}>
+<RootLayout title={`${directory.title} - snapperbay4453`}>
   <Header />
-  <WidthLimiter>
-    <LeftSidebarAndMain>
-      <div slot='left-sidebar'>
-        <VerticalBreadcrumbs
-          basePath='/directories'
-          breadcrumbs={breadcrumbs}
-        />
-      </div>
-      <section>
-        <Markdown
-          rawContent={directory.rawContent}
-          client:load
-        />
-        
-        <div class='mt-8'>
-          {pathNode.path && (
-            <ol class='mt-4'>
-              <li class='mt-2 first:mt-0'>
-                <a
-                  class='flex items-center gap-2 text-lg'
-                  href={`/directories${pathNode.parentPath ? '/' : ''}${pathNode.parentPath}`}
-                >
-                  <IconArrowBackRounded
-                    style={{ display: 'inline-block', color: 'black' }}
-                  />
-                  <span>상위 디렉토리</span>
-                </a>
-              </li>
-            </ol>
-          )}
-  
-          <ol class='mt-4'>
-            {childDirectories.map((childDirectory: Directory) => (
-              <li class='mt-2 first:mt-0'>
-                <a
-                  class='flex items-center gap-2 text-lg'
-                  href=`/directories/${childDirectory.path}`
-                >
-                  <IconFolderOutlineRounded
-                    style={{ display: 'inline-block', color: 'black' }}
-                  />
-                  <span>{childDirectory.title}</span>
-                </a>
-              </li>
-            ))}
-          </ol>
+  <LeftSidebarAndMainLayout>
+    <div slot='left-sidebar'>
+      <VerticalBreadcrumbs
+        basePath='/directories'
+        breadcrumbs={breadcrumbs}
+        client:visible
+      />
+    </div>
+    <section>
+      <Markdown
+        rawContent={directory.rawContent}
+        client:load
+      />
       
+      <div class='mt-8'>
+        {pathNode.path && (
           <ol class='mt-4'>
-            {childArticles.map((childArticle: Article) => (
-              <li class='mt-2 first:mt-0'>
-                <a
-                  class='flex items-center gap-2 text-lg'
-                  href=`/articles/${childArticle.path}`
-                >
-                  <IconLabProfileOutlineRounded
-                    style={{ display: 'inline-block', color: 'black' }}
-                  />
-                  {childArticle.title}
-                </a>
-              </li>
-            ))}
+            <li class='mt-2 first:mt-0'>
+              <a
+                class='flex items-center gap-2 text-lg'
+                href={`/directories${pathNode.parentPath ? '/' : ''}${pathNode.parentPath}`}
+              >
+                <i class='icon-[material-symbols--arrow-back-rounded] text-black'></i>
+                <span>상위 디렉토리</span>
+              </a>
+            </li>
           </ol>
-  
-          {[...childDirectories, ...childArticles].length === 0 && (
-            '이 위치에서 표시할 정보가 없습니다.'
-          )}
-        </div>
-      </section>
-    </LeftSidebarAndMain>
-  </WidthLimiter>
-</Layout>
+        )}
+
+        <ol class='mt-4'>
+          {childDirectories.map((childDirectory: Directory) => (
+            <li class='mt-2 first:mt-0'>
+              <a
+                class='flex items-center gap-2 text-lg'
+                href=`/directories/${childDirectory.path}`
+              >
+                <i class='icon-[material-symbols--folder-outline-rounded] text-black'></i>
+                <span>{childDirectory.title}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+    
+        <ol class='mt-4'>
+          {childArticles.map((childArticle: Article) => (
+            <li class='mt-2 first:mt-0'>
+              <a
+                class='flex items-center gap-2 text-lg'
+                href=`/articles/${childArticle.path}`
+              >
+                <i class='icon-[material-symbols--lab-profile-outline-rounded] text-black'></i>
+                {childArticle.title}
+              </a>
+            </li>
+          ))}
+        </ol>
+
+        {[...childDirectories, ...childArticles].length === 0 && (
+          '이 위치에서 표시할 정보가 없습니다.'
+        )}
+      </div>
+    </section>
+  </LeftSidebarAndMainLayout>
+</RootLayout>

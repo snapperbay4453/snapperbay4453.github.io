@@ -12,8 +12,6 @@ import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-php';
 import 'prismjs/components/prism-scss';
 
-import Button from '@/components/Button';
-
 export default function Markdown(rawContent: { rawContent: string }) {
   const marked = new Marked(markedHighlight({
     highlight(code: string, lang: string = 'plaintext') {

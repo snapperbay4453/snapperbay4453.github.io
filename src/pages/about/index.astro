@@ -1,30 +1,27 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import RootLayout from '@/layouts/RootLayout.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
 import Header from '@/composites/Header.astro';
 import Button from '@/components/Button';
-import WidthLimiter from '@/components/WidthLimiter.astro';
-import IconArrowForwardRounded from '~icons/material-symbols/arrow-forward-rounded';
 ---
 
-<Layout title={`${'About'} - snapperbay4453`}>
+<RootLayout title={`${'About'} - snapperbay4453`}>
   <Header />
-  <div>
-    <WidthLimiter>
-      <div class='flex flex-col sm:flex-row'>
-        <div class='grow flex flex-col justify-center items-center sm:items-start gap-2 h-40 sm:w-1/2'>
-          <p class='text-3xl font-bold ml-0 sm:ml-16'>snapperbay4453</p>
-          <p class='text-2xl font-bold ml-0 sm:ml-16'>Web frontend developer</p>
-        </div>
-        <div class='grow flex justify-center items-start sm:items-center gap-2 h-20 sm:h-40 sm:w-1/2'>
-          <Button
-            onClick='https://github.com/snapperbay4453/snapperbay4453.github.io'
-            client:visible
-          >
-            <IconArrowForwardRounded style={{ display: 'inline-block', color: 'white' }} />
-            Show blog repository
-          </Button>
-        </div>
+  <MainLayout>
+    <div class='flex flex-col sm:flex-row'>
+      <div class='grow flex flex-col justify-center items-center sm:items-start gap-2 h-40 sm:w-1/2'>
+        <p class='text-3xl font-bold ml-0 sm:ml-16'>snapperbay4453</p>
+        <p class='text-2xl font-bold ml-0 sm:ml-16'>Web frontend developer</p>
       </div>
-    </WidthLimiter>
-  </div>
-</Layout>
+      <div class='grow flex justify-center items-start sm:items-center gap-2 h-20 sm:h-40 sm:w-1/2'>
+        <Button
+          onClick='https://github.com/snapperbay4453/snapperbay4453.github.io'
+          client:visible
+        >
+          Show blog repository
+          <i class='icon-[material-symbols--arrow-forward-rounded] text-white'></i>
+        </Button>
+      </div>
+    </div>
+  </MainLayout>
+</RootLayout>
