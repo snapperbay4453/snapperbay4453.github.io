@@ -23,11 +23,6 @@
   },
   "devDependencies": {
     "@types/markdown-it": "^13.0.1",
-    "@types/prismjs": "^1.26.0",
-    "gh-pages": "^6.0.0",
-    "marked": "^7.0.5",
-    "marked-highlight": "^2.0.4",
-    "preact-render-to-string": "^6.2.1",
-    "prismjs": "^1.29.0"
+    "gh-pages": "^6.0.0"
   }
 }
