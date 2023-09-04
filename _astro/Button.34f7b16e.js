@@ -1,1 +1,0 @@
-import{o}from"./jsxRuntime.module.c6f75409.js";import"./preact.module.346aa314.js";function n({children:e,onClick:t}){return typeof t=="string"?o("a",{class:"inline-block text-white bg-indigo-500 hover:bg-indigo-400 px-4 py-2 rounded-full",href:t,children:e}):o("button",{onClick:t,children:e})}export{n as default};
