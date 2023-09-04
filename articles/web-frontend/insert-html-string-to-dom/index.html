@@ -9,10 +9,11 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="/styles/github-markdown.css">
 		<meta name="generator" content="Astro v2.10.14">
 		<title>HTML 문자열을 DOM에 삽입하는 방법 - snapperbay4453</title>
-	<link rel="stylesheet" href="/_astro/index.ae01006a.css" />
-<link rel="stylesheet" href="/_astro/_...slug_.eb07ef80.css" /></head>
+	<link rel="stylesheet" href="/_astro/index.5e17ef3b.css" />
+<link rel="stylesheet" href="/_astro/_...slug_.5f5db245.css" /></head>
 	<body>
 		<h1 class="sr-only">snapperbay4453.github.io</h1>
 		
@@ -24,55 +25,63 @@
       <astro-island uid="1ksgT7" component-url="/_astro/VerticalBreadcrumbs.3416b905.js" component-export="default" renderer-url="/_astro/client.dcad62ff.js" props="{&quot;basePath&quot;:[0,&quot;/directories&quot;],&quot;breadcrumbs&quot;:[1,[[0,{&quot;name&quot;:[0,&quot;웹 프론트엔드&quot;],&quot;path&quot;:[0,&quot;web-frontend&quot;]}]]]}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;VerticalBreadcrumbs&quot;,&quot;value&quot;:true}" await-children=""><div><div class="mt-2 first:mt-0"><a class="flex items-center gap-2 text-lg" href="/directories"><i class="icon-[material-symbols--home-outline-rounded]"></i><span>루트 디렉토리</span></a><a class="flex items-center gap-2 text-lg" href="/directories/web-frontend"><i class="icon-[material-symbols--subdirectory-arrow-right-rounded]"></i>웹 프론트엔드</a></div></div></astro-island>
     </div>
     </aside>
-    <main class="grow mt-2 sm:mt-0">
+    <main class="sm:w-[calc(100%-12rem)] mt-2 sm:mt-0">
       
     
     <section>
-      <script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><astro-island uid="Z1gtxps" component-url="/_astro/Markdown.d7f92cd2.js" component-export="default" renderer-url="/_astro/client.dcad62ff.js" props="{&quot;rawContent&quot;:[0,&quot;\n# HTML 문자열을 DOM에 삽입하는 방법\n\n## 방법 1. innerHTML\n\n간단한 방법입니다.\nDocument에 임의의 div 노드를 생성한 후, 해당 노드에 HTML 텍스트를 주입합니다.\n\n```javascript\nconst insertStringToHTML = (targetElement, str) =&gt; {\n  targetElement.innerHTML = str;\n};\n\nconst targetNode = document.createElement(&#39;div&#39;);\ninsertStringToHTML(targetNode, &#39;&lt;span&gt;inserted!&lt;/span&gt;&#39;);\n```\n\n## 방법 2. DOMParser.parseFromString\n\nDOMParser를 이용하는 방법입니다.\n\n```javascript\nconst insertStringToHTML = (targetElement, str) =&gt; {\n  const parser = new DOMParser();\n  const doc = parser.parseFromString(str, &#39;text/html&#39;);\n  targetElement.appendChild(doc.body);\n};\n\nconst targetNode = document.createElement(&#39;div&#39;);\ninsertStringToHTML(targetNode, &#39;&lt;span&gt;inserted!&lt;/span&gt;&#39;);\n```\n\n## 여러 개의 노드를 추가할 때: createDocumentFragment\n\nDocumentFragment는 Document에 연결되지 않은 별도의 DOM 트리입니다.\nDocument에 연결되지 않으므로, 하위 노드를 추가/수정/제거하여도 Document의 추가적인 렌더링을 방지할 수 있습니다.\n\n```javascript\nconst fragment = document.createDocumentFragment();\n\nfor (let i = 0; i &lt; 200; i++) {\n  const element = document.createElement(&#39;div&#39;);\n  element.innerText = &#39;No. &#39; + i;\n  fragment.appendChild(element);\n}\n\nconst targetNode = document.createElement(&#39;div&#39;);\ntargetNode.appendChild(fragment);\n```\n\n## 주의\n\nXSS를 주의하세요.\n\n```javascript\nconst insertStringToHTML = (targetElement, str) =&gt; {\n  targetElement.innerHTML = str;\n};\n\nconst targetNode = document.createElement(&#39;div&#39;);\ninsertStringToHTML(targetNode, `&lt;img src=\&quot;\&quot; onerror=\&quot;alert(&#39;xss&#39;);\&quot;&gt;`);\n```\n\n[Sanitizer API](https://wicg.github.io/sanitizer-api/), [DOMPurify](https://github.com/cure53/DOMPurify) 등을 사용하여 XSS 위협을 방지해야 합니다.\n\n\n## 참조\n\n* [https://gomakethings.com/converting-a-string-into-markup-with-vanilla-js/](https://gomakethings.com/converting-a-string-into-markup-with-vanilla-js/)\n* [https://coderwall.com/p/o9ws2g/why-you-should-always-append-dom-elements-using-documentfragments](https://coderwall.com/p/o9ws2g/why-you-should-always-append-dom-elements-using-documentfragments)\n* [https://ui.toast.com/weekly-pick/ko_2021124](https://ui.toast.com/weekly-pick/ko_2021124)\n&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Markdown&quot;,&quot;value&quot;:true}" await-children=""><div><h1 class="my-4 first:mt-0 last:mb-0 text-3xl font-bold">HTML 문자열을 DOM에 삽입하는 방법</h1><h2 class="my-3 first:mt-0 last:mb-0 text-2xl font-bold">방법 1. innerHTML</h2><p class="py-1"><p>간단한 방법입니다.
+      <script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();</script><astro-island uid="29zQ7W" component-url="/_astro/Markdown.6c36238f.js" component-export="default" renderer-url="/_astro/client.dcad62ff.js" props="{&quot;rawContent&quot;:[0,&quot;\n# HTML 문자열을 DOM에 삽입하는 방법\n\n## 방법 1. innerHTML\n\n간단한 방법입니다.\nDocument에 임의의 div 노드를 생성한 후, 해당 노드에 HTML 텍스트를 주입합니다.\n\n```javascript\nconst insertStringToHTML = (targetElement, str) =&gt; {\n  targetElement.innerHTML = str;\n};\n\nconst targetNode = document.createElement(&#39;div&#39;);\ninsertStringToHTML(targetNode, &#39;&lt;span&gt;inserted!&lt;/span&gt;&#39;);\n```\n\n## 방법 2. DOMParser.parseFromString\n\nDOMParser를 이용하는 방법입니다.\n\n```javascript\nconst insertStringToHTML = (targetElement, str) =&gt; {\n  const parser = new DOMParser();\n  const doc = parser.parseFromString(str, &#39;text/html&#39;);\n  targetElement.appendChild(doc.body);\n};\n\nconst targetNode = document.createElement(&#39;div&#39;);\ninsertStringToHTML(targetNode, &#39;&lt;span&gt;inserted!&lt;/span&gt;&#39;);\n```\n\n## 여러 개의 노드를 추가할 때: createDocumentFragment\n\nDocumentFragment는 Document에 연결되지 않은 별도의 DOM 트리입니다.\nDocument에 연결되지 않으므로, 하위 노드를 추가/수정/제거하여도 Document의 추가적인 렌더링을 방지할 수 있습니다.\n\n```javascript\nconst fragment = document.createDocumentFragment();\n\nfor (let i = 0; i &lt; 200; i++) {\n  const element = document.createElement(&#39;div&#39;);\n  element.innerText = &#39;No. &#39; + i;\n  fragment.appendChild(element);\n}\n\nconst targetNode = document.createElement(&#39;div&#39;);\ntargetNode.appendChild(fragment);\n```\n\n## 주의\n\nXSS를 주의하세요.\n\n```javascript\nconst insertStringToHTML = (targetElement, str) =&gt; {\n  targetElement.innerHTML = str;\n};\n\nconst targetNode = document.createElement(&#39;div&#39;);\ninsertStringToHTML(targetNode, `&lt;img src=\&quot;\&quot; onerror=\&quot;alert(&#39;xss&#39;);\&quot;&gt;`);\n```\n\n[Sanitizer API](https://wicg.github.io/sanitizer-api/), [DOMPurify](https://github.com/cure53/DOMPurify) 등을 사용하여 XSS 위협을 방지해야 합니다.\n\n\n## 참조\n\n* [https://gomakethings.com/converting-a-string-into-markup-with-vanilla-js/](https://gomakethings.com/converting-a-string-into-markup-with-vanilla-js/)\n* [https://coderwall.com/p/o9ws2g/why-you-should-always-append-dom-elements-using-documentfragments](https://coderwall.com/p/o9ws2g/why-you-should-always-append-dom-elements-using-documentfragments)\n* [https://ui.toast.com/weekly-pick/ko_2021124](https://ui.toast.com/weekly-pick/ko_2021124)\n&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Markdown&quot;,&quot;value&quot;:true}" await-children=""><div class="markdown-body"><h1>HTML 문자열을 DOM에 삽입하는 방법</h1>
+<h2>방법 1. innerHTML</h2>
+<p>간단한 방법입니다.
 Document에 임의의 div 노드를 생성한 후, 해당 노드에 HTML 텍스트를 주입합니다.</p>
-</p><pre><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">insertStringToHTML</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">targetElement<span class="token punctuation">,</span> str</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  targetElement<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> str<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">insertStringToHTML</span> = (<span class="hljs-params">targetElement, str</span>) =&gt; {
+  targetElement.<span class="hljs-property">innerHTML</span> = str;
+};
 
-<span class="token keyword">const</span> targetNode <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">insertStringToHTML</span><span class="token punctuation">(</span>targetNode<span class="token punctuation">,</span> <span class="token string">'&lt;span>inserted!&lt;/span>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">const</span> targetNode = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;div&#x27;</span>);
+<span class="hljs-title function_">insertStringToHTML</span>(targetNode, <span class="hljs-string">&#x27;&lt;span&gt;inserted!&lt;/span&gt;&#x27;</span>);
 </code></pre>
-<h2 class="my-3 first:mt-0 last:mb-0 text-2xl font-bold">방법 2. DOMParser.parseFromString</h2><p class="py-1"><p>DOMParser를 이용하는 방법입니다.</p>
-</p><pre><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">insertStringToHTML</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">targetElement<span class="token punctuation">,</span> str</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> parser <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DOMParser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">const</span> doc <span class="token operator">=</span> parser<span class="token punctuation">.</span><span class="token function">parseFromString</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> <span class="token string">'text/html'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  targetElement<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>doc<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<h2>방법 2. DOMParser.parseFromString</h2>
+<p>DOMParser를 이용하는 방법입니다.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">insertStringToHTML</span> = (<span class="hljs-params">targetElement, str</span>) =&gt; {
+  <span class="hljs-keyword">const</span> parser = <span class="hljs-keyword">new</span> <span class="hljs-title class_">DOMParser</span>();
+  <span class="hljs-keyword">const</span> doc = parser.<span class="hljs-title function_">parseFromString</span>(str, <span class="hljs-string">&#x27;text/html&#x27;</span>);
+  targetElement.<span class="hljs-title function_">appendChild</span>(doc.<span class="hljs-property">body</span>);
+};
 
-<span class="token keyword">const</span> targetNode <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">insertStringToHTML</span><span class="token punctuation">(</span>targetNode<span class="token punctuation">,</span> <span class="token string">'&lt;span>inserted!&lt;/span>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">const</span> targetNode = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;div&#x27;</span>);
+<span class="hljs-title function_">insertStringToHTML</span>(targetNode, <span class="hljs-string">&#x27;&lt;span&gt;inserted!&lt;/span&gt;&#x27;</span>);
 </code></pre>
-<h2 class="my-3 first:mt-0 last:mb-0 text-2xl font-bold">여러 개의 노드를 추가할 때: createDocumentFragment</h2><p class="py-1"><p>DocumentFragment는 Document에 연결되지 않은 별도의 DOM 트리입니다.
+<h2>여러 개의 노드를 추가할 때: createDocumentFragment</h2>
+<p>DocumentFragment는 Document에 연결되지 않은 별도의 DOM 트리입니다.
 Document에 연결되지 않으므로, 하위 노드를 추가/수정/제거하여도 Document의 추가적인 렌더링을 방지할 수 있습니다.</p>
-</p><pre><code class="language-javascript"><span class="token keyword">const</span> fragment <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createDocumentFragment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> fragment = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createDocumentFragment</span>();
 
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">200</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> element <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  element<span class="token punctuation">.</span>innerText <span class="token operator">=</span> <span class="token string">'No. '</span> <span class="token operator">+</span> i<span class="token punctuation">;</span>
-  fragment<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">200</span>; i++) {
+  <span class="hljs-keyword">const</span> element = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;div&#x27;</span>);
+  element.<span class="hljs-property">innerText</span> = <span class="hljs-string">&#x27;No. &#x27;</span> + i;
+  fragment.<span class="hljs-title function_">appendChild</span>(element);
+}
 
-<span class="token keyword">const</span> targetNode <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-targetNode<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>fragment<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">const</span> targetNode = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;div&#x27;</span>);
+targetNode.<span class="hljs-title function_">appendChild</span>(fragment);
 </code></pre>
-<h2 class="my-3 first:mt-0 last:mb-0 text-2xl font-bold">주의</h2><p class="py-1"><p>XSS를 주의하세요.</p>
-</p><pre><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">insertStringToHTML</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">targetElement<span class="token punctuation">,</span> str</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  targetElement<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> str<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<h2>주의</h2>
+<p>XSS를 주의하세요.</p>
+<pre><code class="language-javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">insertStringToHTML</span> = (<span class="hljs-params">targetElement, str</span>) =&gt; {
+  targetElement.<span class="hljs-property">innerHTML</span> = str;
+};
 
-<span class="token keyword">const</span> targetNode <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">insertStringToHTML</span><span class="token punctuation">(</span>targetNode<span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;img src="" onerror="alert('xss');"></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="hljs-keyword">const</span> targetNode = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;div&#x27;</span>);
+<span class="hljs-title function_">insertStringToHTML</span>(targetNode, <span class="hljs-string">`&lt;img src=&quot;&quot; onerror=&quot;alert(&#x27;xss&#x27;);&quot;&gt;`</span>);
 </code></pre>
-<p class="py-1"><p><a class="underline" href="https://wicg.github.io/sanitizer-api/">Sanitizer API</a>, <a class="underline" href="https://github.com/cure53/DOMPurify">DOMPurify</a> 등을 사용하여 XSS 위협을 방지해야 합니다.</p>
-</p><h2 class="my-3 first:mt-0 last:mb-0 text-2xl font-bold">참조</h2><ul class="list-disc pl-5"><li><p><a class="underline" href="https://gomakethings.com/converting-a-string-into-markup-with-vanilla-js/">https://gomakethings.com/converting-a-string-into-markup-with-vanilla-js/</a></p>
-</li><li><p><a class="underline" href="https://coderwall.com/p/o9ws2g/why-you-should-always-append-dom-elements-using-documentfragments">https://coderwall.com/p/o9ws2g/why-you-should-always-append-dom-elements-using-documentfragments</a></p>
-</li><li><p><a class="underline" href="https://ui.toast.com/weekly-pick/ko_2021124">https://ui.toast.com/weekly-pick/ko_2021124</a></p>
-</li></ul></div></astro-island>
+<p><a href="https://wicg.github.io/sanitizer-api/">Sanitizer API</a>, <a href="https://github.com/cure53/DOMPurify">DOMPurify</a> 등을 사용하여 XSS 위협을 방지해야 합니다.</p>
+<h2>참조</h2>
+<ul>
+<li><a href="https://gomakethings.com/converting-a-string-into-markup-with-vanilla-js/">https://gomakethings.com/converting-a-string-into-markup-with-vanilla-js/</a></li>
+<li><a href="https://coderwall.com/p/o9ws2g/why-you-should-always-append-dom-elements-using-documentfragments">https://coderwall.com/p/o9ws2g/why-you-should-always-append-dom-elements-using-documentfragments</a></li>
+<li><a href="https://ui.toast.com/weekly-pick/ko_2021124">https://ui.toast.com/weekly-pick/ko_2021124</a></li>
+</ul>
+</div></astro-island>
       
       <div class="flex justify-center items-center gap-4 mt-4">
         <astro-island uid="27j4KC" component-url="/_astro/Button.9a993bb8.js" component-export="default" renderer-url="/_astro/client.dcad62ff.js" props="{&quot;onClick&quot;:[0,&quot;/directories/web-frontend&quot;]}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;Button&quot;,&quot;value&quot;:true}" await-children=""><a class="flex justify-center items-center gap-1 inline-block text-white bg-indigo-500 hover:bg-indigo-400 px-4 py-2 rounded-full" href="/directories/web-frontend"><astro-slot>
