@@ -6,7 +6,7 @@ export default function ArticleSearchBarInner() {
       <WidthLimiter>
         <div class='flex items-center justify-between relative h-12'>
           <span><a href='/home'>snapperbay4453</a></span>
-          <div class='flex gap-4'>
+          <div class='flex items-center gap-4'>
             <a href='/directories'>Posts</a>
             <a href='/about'>About</a>
           </div>

@@ -6,7 +6,7 @@ export default function Button({ children, onClick }: ButtonProps) {
   if(typeof onClick === 'string') {
     return (
       <a
-        class='flex justify-center items-center gap-1 inline-block text-white bg-indigo-500 hover:bg-indigo-400 px-4 py-2 rounded-full'
+        class='flex justify-center items-center gap-1 text-white bg-indigo-500 hover:bg-indigo-400 px-4 py-2 rounded-full'
         href={onClick}
       >
         {children}
@@ -15,7 +15,7 @@ export default function Button({ children, onClick }: ButtonProps) {
   } else {
     return (
       <button
-        class='flex justify-center items-center gap-1'
+        class='flex justify-center items-center gap-1 text-white bg-indigo-500 hover:bg-indigo-400 px-4 py-2 rounded-full'
         onClick={onClick}
       >
         {children}

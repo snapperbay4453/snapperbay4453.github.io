@@ -1,9 +1,11 @@
 ---
 import RootLayout from '@/layouts/RootLayout.astro';
+import BottomFloatingLayout from '@/layouts/BottomFloatingLayout.astro';
 import Header from '@/composites/Header.astro';
 import Markdown from '@/components/Markdown';
 import Button from '@/components/Button';
 import LeftSidebarAndMainLayout from '@/layouts/LeftSidebarAndMainLayout.astro';
+import ThemeChanger from '@/composites/ThemeChanger.astro';
 import VerticalBreadcrumbs from '@/components/VerticalBreadcrumbs';
 import {
   getParentPath,
@@ -64,10 +66,15 @@ const breadcrumbs = createBreadcrumbs(pathNode.parentPath)
           }
           client:visible
         >
-          <i class='icon-[material-symbols--arrow-back-rounded] text-white'></i>
+          <i class='icon-[material-symbols--arrow-back-rounded] text-inherit'></i>
           <span>뒤로가기</span>
         </Button>
       </div>
     </section>
   </LeftSidebarAndMainLayout>
+  <BottomFloatingLayout>
+    <div slot='right'>
+      <ThemeChanger />
+    </div>
+  </BottomFloatingLayout>
 </RootLayout>

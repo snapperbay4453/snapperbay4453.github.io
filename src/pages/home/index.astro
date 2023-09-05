@@ -1,9 +1,11 @@
 ---
 import RootLayout from '@/layouts/RootLayout.astro';
 import MainLayout from '@/layouts/MainLayout.astro';
+import BottomFloatingLayout from '@/layouts/BottomFloatingLayout.astro';
 import ArticleSearchBar from '@/composites/ArticleSearchBar.astro';
 import Header from '@/composites/Header.astro';
 import Button from '@/components/Button';
+import ThemeChanger from '@/composites/ThemeChanger.astro';
 ---
 
 <RootLayout title={`${'Home'} - snapperbay4453`}>
@@ -20,14 +22,14 @@ import Button from '@/components/Button';
           client:visible
         >
           Posts
-          <i class='icon-[material-symbols--arrow-forward-rounded] text-white'></i>
+          <i class='icon-[material-symbols--arrow-forward-rounded] text-inherit'></i>
         </Button>
         <Button
           onClick='/about'
           client:visible
         >
           About
-          <i class='icon-[material-symbols--arrow-forward-rounded] text-white'></i>
+          <i class='icon-[material-symbols--arrow-forward-rounded] text-inherit'></i>
         </Button>
       </div>
     </div>
@@ -38,4 +40,9 @@ import Button from '@/components/Button';
       </div>
     </div>
   </MainLayout>
+  <BottomFloatingLayout>
+    <div slot='right'>
+      <ThemeChanger />
+    </div>
+  </BottomFloatingLayout>
 </RootLayout>
