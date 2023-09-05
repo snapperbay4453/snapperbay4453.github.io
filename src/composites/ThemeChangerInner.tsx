@@ -34,19 +34,19 @@ export default function ThemeChangerInner() {
             switch(theme) {
               case 'auto':
                 return (
-                  <i class='icon-[material-symbols--night-sight-auto-outline-rounded] text-inherit'></i>
+                  <i class='icon-[material-symbols--night-sight-auto-outline-rounded] text-white'></i>
                 );
               case 'light':
                 return (
-                  <i class='icon-[material-symbols--sunny-outline-rounded] text-inherit'></i>
+                  <i class='icon-[material-symbols--sunny-outline-rounded] text-white'></i>
                 );
               case 'dark':
                 return (
-                  <i class='icon-[material-symbols--mode-night-outline-rounded] text-inherit'></i>
+                  <i class='icon-[material-symbols--mode-night-outline-rounded] text-white'></i>
                 );
               default:
                 return (
-                  <i class='icon-[material-symbols--fiber-manual-record-outline] text-inherit'></i>
+                  <i class='icon-[material-symbols--fiber-manual-record-outline] text-white'></i>
                 );
             }
           })()}
