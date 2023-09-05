@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="slate-300">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="description" content="Astro description">
@@ -12,12 +12,26 @@
 		<link rel="stylesheet" href="/styles/github-markdown.css">
 		<meta name="generator" content="Astro v2.10.14">
 		<title>개발할 기능 메모 - snapperbay4453</title>
-	<link rel="stylesheet" href="/_astro/index.5e17ef3b.css" />
+		<script defer>
+			if (localStorage.theme === 'auto' || (!('theme' in localStorage))) {
+				if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					document.documentElement.classList.add('dark')
+				} else {
+					document.documentElement.classList.remove('dark')
+				}
+			} else if(localStorage.theme === 'dark') {
+				document.documentElement.classList.add('dark')
+			} else if(localStorage.theme === 'light') {
+				document.documentElement.classList.remove('dark')
+			}
+		</script>
+	<link rel="stylesheet" href="/_astro/404.c0314f6f.css" />
+<link rel="stylesheet" href="/_astro/index.541ad774.css" />
 <link rel="stylesheet" href="/_astro/_...slug_.5f5db245.css" /></head>
-	<body>
+	<body class="bg-slate-50 dark:bg-slate-950 text-black dark:text-white">
 		<h1 class="sr-only">snapperbay4453.github.io</h1>
 		
-  <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var r=(i,c,n)=>{let s=async()=>{await(await i())()},t=new IntersectionObserver(e=>{for(let o of e)if(o.isIntersecting){t.disconnect(),s();break}});for(let e of n.children)t.observe(e)};(self.Astro||(self.Astro={})).visible=r;window.dispatchEvent(new Event("astro:visible"));})();;(()=>{var d;{let p={0:t=>u(t),1:t=>l(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(l(t)),5:t=>new Set(l(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t)},h=t=>{let[e,n]=t;return e in p?p[e](n):void 0},l=t=>t.map(h),u=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([e,n])=>[e,h(n)]));customElements.get("astro-island")||customElements.define("astro-island",(d=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=async()=>{var i;if(!this.hydrator||!this.isConnected)return;let e=(i=this.parentElement)==null?void 0:i.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let n=this.querySelectorAll("astro-slot"),o={},a=this.querySelectorAll("template[data-astro-template]");for(let r of a){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(o[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of n){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(o[r.getAttribute("name")||"default"]=r.innerHTML)}let c;try{c=this.hasAttribute("props")?u(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",y=this.getAttribute("component-export");throw y&&(s+=` (export ${y})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}await this.hydrator(this)(this.Component,c,o,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((e,n)=>{n.disconnect(),setTimeout(()=>this.childrenConnectedCallback(),0)}).observe(this,{childList:!0})}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}start(){let e=JSON.parse(this.getAttribute("opts")),n=this.getAttribute("client");if(Astro[n]===void 0){window.addEventListener(`astro:${n}`,()=>this.start(),{once:!0});return}Astro[n](async()=>{let o=this.getAttribute("renderer-url"),[a,{default:c}]=await Promise.all([import(this.getAttribute("component-url")),o?import(o):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(let r of i.split("."))this.Component=this.Component[r]}return this.hydrator=c,this.hydrate},e,this)}attributeChangedCallback(){this.hydrate()}},d.observedAttributes=["props"],d))}})();</script><astro-island uid="Z1STwdL" component-url="/_astro/HeaderInner.9d166f32.js" component-export="default" renderer-url="/_astro/client.dcad62ff.js" props="{}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;HeaderInner&quot;,&quot;value&quot;:true}" await-children=""><nav class="sticky top-0 mx-auto bg-white/70 dark:bg-black/70 backdrop-blur"><div class="max-w-5xl mx-auto px-4 5xl:px-0"><div class="flex items-center justify-between relative h-12"><span><a href="/home">snapperbay4453</a></span><div class="flex gap-4"><a href="/directories">Posts</a><a href="/about">About</a></div></div></div></nav></astro-island>
+  <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var r=(i,c,n)=>{let s=async()=>{await(await i())()},t=new IntersectionObserver(e=>{for(let o of e)if(o.isIntersecting){t.disconnect(),s();break}});for(let e of n.children)t.observe(e)};(self.Astro||(self.Astro={})).visible=r;window.dispatchEvent(new Event("astro:visible"));})();;(()=>{var d;{let p={0:t=>u(t),1:t=>l(t),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(l(t)),5:t=>new Set(l(t)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(t),9:t=>new Uint16Array(t),10:t=>new Uint32Array(t)},h=t=>{let[e,n]=t;return e in p?p[e](n):void 0},l=t=>t.map(h),u=t=>typeof t!="object"||t===null?t:Object.fromEntries(Object.entries(t).map(([e,n])=>[e,h(n)]));customElements.get("astro-island")||customElements.define("astro-island",(d=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=async()=>{var i;if(!this.hydrator||!this.isConnected)return;let e=(i=this.parentElement)==null?void 0:i.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let n=this.querySelectorAll("astro-slot"),o={},a=this.querySelectorAll("template[data-astro-template]");for(let r of a){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(o[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of n){let s=r.closest(this.tagName);s!=null&&s.isSameNode(this)&&(o[r.getAttribute("name")||"default"]=r.innerHTML)}let c;try{c=this.hasAttribute("props")?u(JSON.parse(this.getAttribute("props"))):{}}catch(r){let s=this.getAttribute("component-url")||"<unknown>",y=this.getAttribute("component-export");throw y&&(s+=` (export ${y})`),console.error(`[hydrate] Error parsing props for component ${s}`,this.getAttribute("props"),r),r}await this.hydrator(this)(this.Component,c,o,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((e,n)=>{n.disconnect(),setTimeout(()=>this.childrenConnectedCallback(),0)}).observe(this,{childList:!0})}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}start(){let e=JSON.parse(this.getAttribute("opts")),n=this.getAttribute("client");if(Astro[n]===void 0){window.addEventListener(`astro:${n}`,()=>this.start(),{once:!0});return}Astro[n](async()=>{let o=this.getAttribute("renderer-url"),[a,{default:c}]=await Promise.all([import(this.getAttribute("component-url")),o?import(o):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(let r of i.split("."))this.Component=this.Component[r]}return this.hydrator=c,this.hydrate},e,this)}attributeChangedCallback(){this.hydrate()}},d.observedAttributes=["props"],d))}})();</script><astro-island uid="ZbSukf" component-url="/_astro/HeaderInner.b9584ecd.js" component-export="default" renderer-url="/_astro/client.dcad62ff.js" props="{}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;HeaderInner&quot;,&quot;value&quot;:true}" await-children=""><nav class="sticky top-0 mx-auto bg-white/70 dark:bg-black/70 backdrop-blur"><div class="max-w-5xl mx-auto px-4 5xl:px-0"><div class="flex items-center justify-between relative h-12"><span><a href="/home">snapperbay4453</a></span><div class="flex items-center gap-4"><a href="/directories">Posts</a><a href="/about">About</a></div></div></div></nav></astro-island>
   <div class="max-w-5xl mx-auto px-4 5xl:px-0">
   <div class="sm:flex py-4">
     <aside class="sm:w-[12rem] sm:min-w-[12rem]">
@@ -54,14 +68,27 @@
 </div></astro-island>
       
       <div class="flex justify-center items-center gap-4 mt-4">
-        <astro-island uid="9oi1Y" component-url="/_astro/Button.9a993bb8.js" component-export="default" renderer-url="/_astro/client.dcad62ff.js" props="{&quot;onClick&quot;:[0,&quot;/directories/blog-developments&quot;]}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;Button&quot;,&quot;value&quot;:true}" await-children=""><a class="flex justify-center items-center gap-1 inline-block text-white bg-indigo-500 hover:bg-indigo-400 px-4 py-2 rounded-full" href="/directories/blog-developments"><astro-slot>
-          <i class="icon-[material-symbols--arrow-back-rounded] text-white"></i>
+        <astro-island uid="18I6K2" component-url="/_astro/Button.f6aa994a.js" component-export="default" renderer-url="/_astro/client.dcad62ff.js" props="{&quot;onClick&quot;:[0,&quot;/directories/blog-developments&quot;]}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;Button&quot;,&quot;value&quot;:true}" await-children=""><a class="flex justify-center items-center gap-1 text-white bg-indigo-500 hover:bg-indigo-400 px-4 py-2 rounded-full" href="/directories/blog-developments"><astro-slot>
+          <i class="icon-[material-symbols--arrow-back-rounded] text-inherit"></i>
           <span>뒤로가기</span>
         </astro-slot></a></astro-island>
       </div>
     </section>
   
     </main>
+  </div>
+</div>
+  <div class="fixed left-4 right-4 bottom-4 flex justify-between">
+  <div>
+    
+  </div>
+  <div>
+    
+  </div>
+  <div>
+    <div>
+      <astro-island uid="1uLdxe" component-url="/_astro/ThemeChangerInner.790b6741.js" component-export="default" renderer-url="/_astro/client.dcad62ff.js" props="{}" ssr="" client="visible" opts="{&quot;name&quot;:&quot;ThemeChangerInner&quot;,&quot;value&quot;:true}" await-children=""><button class="flex justify-center items-center gap-1 text-white bg-indigo-500 hover:bg-indigo-400 px-2 py-2 rounded-full text-2xl"></button></astro-island>
+    </div>
   </div>
 </div>
 
