@@ -4,6 +4,8 @@ export const detectBrowser = () => {
 
   if (userAgent.match(/samsung/i)) {
     browserName = 'Samsung';
+  } else if (userAgent.match(/edg/i)) {
+    browserName = 'Edge';
   } else if (userAgent.match(/chrome|chromium|crios/i)) {
     browserName = 'Chrome';
   } else if (userAgent.match(/firefox|fxios/i)) {
@@ -12,8 +14,6 @@ export const detectBrowser = () => {
     browserName = 'Safari';
   } else if (userAgent.match(/opr\//i)) {
     browserName = 'Opera';
-  } else if (userAgent.match(/edg/i)) {
-    browserName = 'Edge';
   } else if (userAgent.match(/android/i)) {
     browserName = 'Android';
   } else if (userAgent.match(/iphone/i)) {

@@ -1,9 +1,9 @@
 ---
-title: DOM Diffing
+title: DOM diffing
 tags: markdown tag01 tag02
 ---
 
-# DOM Diffing
+# DOM diffing
 
 ## 참조
 
