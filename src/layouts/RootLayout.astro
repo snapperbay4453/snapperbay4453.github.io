@@ -21,6 +21,13 @@ const { title } = Astro.props;
 		<meta name='generator' content={Astro.generator} />
 		<title>{title}</title>
 		<script defer>
+			if(!('theme' in localStorage)) {
+				if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					localStorage.theme = 'dark';
+				} else {
+					localStorage.theme = 'light';
+				}
+			}
 			if (localStorage.theme === 'auto' || (!('theme' in localStorage))) {
 				if(window.matchMedia('(prefers-color-scheme: dark)').matches) {
 					document.documentElement.classList.add('dark')
