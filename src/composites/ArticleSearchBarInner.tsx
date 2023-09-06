@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useRef, useState } from 'preact/hooks';
 import useClickOutside from '@/hooks/useClickOutside'
 import type { Article } from '@/types/file';
 
@@ -15,7 +15,9 @@ export default function ArticleSearchBarInner({ articles }: ArticleSearchBarInne
     setOpen(false);
   };
 
-  const candidateListRef = useClickOutside(handleClickOutsideCandidateList);
+  const candidateListRef = useRef();
+  
+  useClickOutside(candidateListRef, handleClickOutsideCandidateList);
 
   const handleOnSearch = (event) => {
     const keyword = event.target.value;

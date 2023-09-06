@@ -1,21 +1,17 @@
 import { useEffect, useRef } from 'preact/hooks';
 
-const useClickOutside = (callback) => {
-  const ref = useRef();
-
-  useEffect(() => {
-    const handleClick = (event) => {
+const useClickOutside = (ref, callback) => {
+  const handleClick = e => {
+    if (ref.current && !ref.current.contains(e.target)) {
       callback();
-    };
-
+    }
+  };
+  useEffect(() => {
     document.addEventListener('click', handleClick);
-
     return () => {
       document.removeEventListener('click', handleClick);
     };
-  }, []);
-
-  return ref;
+  });
 };
 
 export default useClickOutside;

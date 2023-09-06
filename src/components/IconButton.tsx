@@ -1,8 +1,8 @@
-interface ButtonProps {
+interface IconButtonProps {
   children: any;
-  onClick?: string | (() => void)
+  onClick?: string | (() => void);
 }
-export default function IconButton({ children, onClick }: ButtonProps) {
+export default function IconButton({ children, onClick }: IconButtonProps) {
   if(typeof onClick === 'string') {
     return (
       <a

@@ -1,0 +1,35 @@
+---
+import RootLayout from '@/layouts/RootLayout.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
+import BottomFloatingLayout from '@/layouts/BottomFloatingLayout.astro';
+import TitleAndBodyBannerLayout from '@/layouts/TitleAndBodyBannerLayout.astro'
+import Header from '@/composites/Header.astro';
+import Button from '@/components/Button';
+import ThemeChanger from '@/composites/ThemeChanger.astro';
+import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
+---
+
+<RootLayout title={`${'Home'} - snapperbay4453`}>
+  <Header />
+  <MainLayout>
+    <TitleAndBodyBannerLayout
+      title='Error 404'
+      subtitle='페이지를 찾을 수 없습니다.'
+    >
+      <Button
+        onClick='/home'
+        client:visible
+      >
+        홈으로 이동
+        <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
+      </Button>
+    </TitleAndBodyBannerLayout>
+  </MainLayout>
+  <BottomFloatingLayout>
+    <div slot='fab'>
+      <FloatingActionButtonGroup client:load>
+        <ThemeChanger />
+      </FloatingActionButtonGroup>
+    </div>
+  </BottomFloatingLayout>
+</RootLayout>

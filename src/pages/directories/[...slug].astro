@@ -5,6 +5,7 @@ import BottomFloatingLayout from '@/layouts/BottomFloatingLayout.astro';
 import Markdown from '@/components/Markdown';
 import LeftSidebarAndMainLayout from '@/layouts/LeftSidebarAndMainLayout.astro';
 import ThemeChanger from '@/composites/ThemeChanger.astro';
+import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
 import VerticalBreadcrumbs from '@/components/VerticalBreadcrumbs';
 import {
   getParentPath,
@@ -68,7 +69,7 @@ const breadcrumbs = createBreadcrumbs(pathNode.path)
                 class='flex items-center gap-2 text-lg'
                 href={`/directories${pathNode.parentPath ? '/' : ''}${pathNode.parentPath}`}
               >
-                <i class='icon-[material-symbols--arrow-back-rounded] bg-current'></i>
+                <i class='icon-[material-symbols--arrow-back-rounded]'></i>
                 <span>상위 디렉토리</span>
               </a>
             </li>
@@ -82,7 +83,7 @@ const breadcrumbs = createBreadcrumbs(pathNode.path)
                 class='flex items-center gap-2 text-lg'
                 href=`/directories/${childDirectory.path}`
               >
-                <i class='icon-[material-symbols--folder-outline-rounded] bg-current'></i>
+                <i class='icon-[material-symbols--folder-outline-rounded]'></i>
                 <span>{childDirectory.title}</span>
               </a>
             </li>
@@ -96,7 +97,7 @@ const breadcrumbs = createBreadcrumbs(pathNode.path)
                 class='flex items-center gap-2 text-lg'
                 href=`/articles/${childArticle.path}`
               >
-                <i class='icon-[material-symbols--lab-profile-outline-rounded] bg-current'></i>
+                <i class='icon-[material-symbols--lab-profile-outline-rounded]'></i>
                 {childArticle.title}
               </a>
             </li>
@@ -110,8 +111,10 @@ const breadcrumbs = createBreadcrumbs(pathNode.path)
     </section>
   </LeftSidebarAndMainLayout>
   <BottomFloatingLayout>
-    <div slot='right'>
-      <ThemeChanger />
+    <div slot='fab'>
+      <FloatingActionButtonGroup client:load>
+        <ThemeChanger />
+      </FloatingActionButtonGroup>
     </div>
   </BottomFloatingLayout>
 </RootLayout>

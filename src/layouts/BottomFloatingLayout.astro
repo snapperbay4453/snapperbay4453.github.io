@@ -2,14 +2,11 @@
 
 ---
 
-<div class='fixed left-4 right-4 bottom-4 flex justify-between'>
-  <div>
-    <slot name='left'/>
-  </div>
+<div class='fixed left-4 right-4 bottom-4 flex justify-center'>
   <div>
     <slot />
   </div>
-  <div>
-    <slot name='right'/>
+  <div class='fixed right-4 bottom-4'>
+    <slot name='fab'/>
   </div>
 </div>

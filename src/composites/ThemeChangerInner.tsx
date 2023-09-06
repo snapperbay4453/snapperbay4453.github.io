@@ -29,7 +29,7 @@ export default function ThemeChangerInner() {
 
   return (
     <>
-      {(rendered) && (browserName !== 'Samsung') && (
+      {(browserName !== 'Samsung') && (
         <IconButton
           onClick={() => circulateTheme()}
         >
@@ -37,19 +37,19 @@ export default function ThemeChangerInner() {
             switch(theme) {
               case 'auto':
                 return (
-                  <i class='icon-[material-symbols--night-sight-auto-outline-rounded] bg-zinc-100'></i>
+                  <i class='icon-[material-symbols--night-sight-auto-outline-rounded] text-zinc-100'></i>
                 );
               case 'light':
                 return (
-                  <i class='icon-[material-symbols--sunny-outline-rounded] bg-zinc-100'></i>
+                  <i class='icon-[material-symbols--sunny-outline-rounded] text-zinc-100'></i>
                 );
               case 'dark':
                 return (
-                  <i class='icon-[material-symbols--mode-night-outline-rounded] bg-zinc-100'></i>
+                  <i class='icon-[material-symbols--mode-night-outline-rounded] text-zinc-100'></i>
                 );
               default:
                 return (
-                  <i class='icon-[material-symbols--fiber-manual-record-outline] bg-zinc-100'></i>
+                  <i class='icon-[material-symbols--fiber-manual-record-outline] text-zinc-100'></i>
                 );
             }
           })()}
