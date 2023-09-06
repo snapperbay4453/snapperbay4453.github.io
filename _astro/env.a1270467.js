@@ -1,0 +1,1 @@
+const r=()=>{let i=navigator.userAgent,e;return i.match(/samsung/i)?e="Samsung":i.match(/edg/i)?e="Edge":i.match(/chrome|chromium|crios/i)?e="Chrome":i.match(/firefox|fxios/i)?e="Firefox":i.match(/safari/i)?e="Safari":i.match(/opr\//i)?e="Opera":i.match(/android/i)?e="Android":i.match(/iphone/i)?e="iPhone":e="Unknown",e};export{r as d};
