@@ -6,6 +6,7 @@ import TitleAndBodyBannerLayout from '@/layouts/TitleAndBodyBannerLayout.astro'
 import ArticleSearchBar from '@/composites/ArticleSearchBar.astro';
 import Header from '@/composites/Header.astro';
 import ThemeChanger from '@/composites/ThemeChanger.astro';
+import BrowserSpecificBox from '@/components/BrowserSpecificBox';
 import Button from '@/components/Button';
 import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
 ---
@@ -21,16 +22,24 @@ import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
         onClick='/directories'
         client:visible
       >
-        Posts
+        <span class='truncate'>Posts</span>
         <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
       </Button>
       <Button
         onClick='/about'
         client:visible
       >
-        About
+        <span class='truncate'>About</span>
         <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
       </Button>
+      <BrowserSpecificBox browserName='Samsung' client:visible>
+        <Button
+          onClick='/articles/blog-help/samsung-internet-dark-mode'
+        >
+          <span class='truncate'>색상이 이상해요.</span>
+          <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
+        </Button>
+      </BrowserSpecificBox>
     </TitleAndBodyBannerLayout>
     <div class='flex flex-col items-center'>
       <p class='text-3xl font-bold'>검색</p>

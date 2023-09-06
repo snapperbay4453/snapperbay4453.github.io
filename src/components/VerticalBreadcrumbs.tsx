@@ -26,18 +26,18 @@ export default function VerticalBreadcrumbs({
 			)}
 			<div class='mt-2 first:mt-0'>
 				<a
-					class='flex items-center gap-2 text-lg'
+					class='flex gap-2 text-lg'
 					href={`${basePath}`}
 				>
-					<i class='icon-[material-symbols--home-outline-rounded]'></i>
+					<i class='icon-[material-symbols--home-outline-rounded] mt-1'></i>
 					<span>{'루트 디렉토리'}</span>
 				</a>
 				{breadcrumbs.map((breadcrumb: Breadcrumb, index: number) => (
 					<a
-						class='flex items-center gap-2 text-lg'
+						class='flex gap-2 text-lg'
 						href={`${basePath}/${breadcrumb.path}`}
 					>
-					<i class='icon-[material-symbols--subdirectory-arrow-right-rounded]'></i>
+					<i class='icon-[material-symbols--subdirectory-arrow-right-rounded] mt-1'></i>
 						{breadcrumb.name}
 					</a>
 				))}

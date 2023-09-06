@@ -36,7 +36,7 @@ export default function ArticleSearchBarInner({ articles }: ArticleSearchBarInne
       class='relative'
     >
       <input
-        class='w-full px-4 py-2 border-2 rounded-3xl'
+        class='w-full px-4 py-2 border-2 rounded-3xl bg-zinc-100 dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700'
         type='text'
         value={query}
         onInput={handleOnSearch}
@@ -50,12 +50,12 @@ export default function ArticleSearchBarInner({ articles }: ArticleSearchBarInne
           {filteredArticles.length > 0 && (
 						<>
 							<p>
-								{filteredArticles.length}개의 검색 결과:
+								{filteredArticles.length}건의 검색 결과:
 							</p>
-							<ul>
+							<ul class='divide-y'>
 								{filteredArticles && filteredArticles.map((article) => (
 									<li>
-										<a href={`/articles/${article.path}`}>{article.title}</a>
+										<a class='block py-1' href={`/articles/${article.path}`}>{article.title}</a>
 									</li>
 								))}
 							</ul>

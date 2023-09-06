@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'preact/hooks';
 
 import IconButton from "@/components/IconButton";
-import { detectBrowser } from '@/utils/env'
+import { detectBrowser } from '@/utils/env';
 import { allThemeList, getTheme, changeTheme } from '@/utils/theme';
 
 export default function ThemeChangerInner() {
-  const [rendered, setRendered] = useState(false);
   const [theme, setTheme] = useState(getTheme());
   const [browserName, setBrowserName] = useState('Unknown');
 
@@ -23,13 +22,11 @@ export default function ThemeChangerInner() {
     const initialTheme = getTheme();
     setTheme(initialTheme);
     changeTheme(initialTheme);
-
-    setRendered(true);
   }, []);
 
   return (
     <>
-      {(browserName !== 'Samsung') && (
+      {(/* browserName !== 'Samsung' */ true) && (
         <IconButton
           onClick={() => circulateTheme()}
         >
