@@ -5,7 +5,6 @@ tags: markdown tag01 tag02
 
 # 긴츠기
 
-
 ## 번역본
 
 > 긴츠기. 금으로 잇다.

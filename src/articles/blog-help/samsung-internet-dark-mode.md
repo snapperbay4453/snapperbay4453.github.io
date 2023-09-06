@@ -10,5 +10,5 @@ tags: markdown tag01 tag02
 1. 설정 메뉴에서 인터넷 실험실로 이동합니다.
 ![Markdown logo](/images/samsung-internet-use-website-dark-theme-01.png)
 
-2. 인터넷 실험실 메뉴에서 "웹사이트 다크 모드 사용"을 활성화합니다.
+2. 인터넷 실험실 메뉴에서 "웹사이트 다크 테마 사용"을 활성화합니다.
 ![Markdown logo](/images/samsung-internet-use-website-dark-theme-02.png)
