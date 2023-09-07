@@ -25,7 +25,7 @@ export default function FloatingActionButtonGroup({
 
   return (
     <div
-      class='relative flex flex-col-reverse gap-4'
+      class='relative flex flex-col-reverse gap-4 z-40'
       ref={floatingActionButtonGroupRef}
     >
       <IconButton

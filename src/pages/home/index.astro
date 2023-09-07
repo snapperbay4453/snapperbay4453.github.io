@@ -39,15 +39,16 @@ const developmentDirectories = getDevelopmentDirectories();
         <span class='truncate'>About</span>
         <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
       </Button>
-      <BrowserSpecificBox browserName='Samsung' client:visible>
-        <Button
-          onClick='/articles/blog/help/samsung-internet-dark-mode'
-        >
-          <span class='truncate'>색상이 이상해요</span>
-          <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
-        </Button>
-      </BrowserSpecificBox>
     </TitleAndBodyBannerLayout>
+
+    <BrowserSpecificBox browserName='Samsung' client:visible>
+      <Button
+        onClick='/articles/blog/help/samsung-internet-dark-mode'
+      >
+        <span class='truncate'>색상이 이상해요</span>
+        <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
+      </Button>
+    </BrowserSpecificBox>
 
     <div class='flex flex-col items-center mt-8'>
       <p class='text-3xl font-bold'>검색</p>
