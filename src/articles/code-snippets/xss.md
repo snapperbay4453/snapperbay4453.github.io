@@ -1,9 +1,9 @@
 ---
-title: XXS
+title: XSS
 tags: markdown tag01 tag02
 ---
 
-# XXS
+# XSS
 
 ```html
 <img src="#" onerror="alert('XSS')">
