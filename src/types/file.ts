@@ -9,6 +9,8 @@ export interface Article {
 
 export interface Directory {
   path?: string;
+  imagePath?: string;
+  backgroundColorPalette?: string;
   title: string;
   Content: any;
   rawContent: {

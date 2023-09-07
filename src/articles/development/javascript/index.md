@@ -1,5 +1,7 @@
 ---
 title: 자바스크립트
+imagePath: /images/javascript-logo.png
+backgroundColorPalette: amber
 ---
 
 # 자바스크립트

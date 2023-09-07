@@ -1,6 +1,6 @@
 import WidthLimiter from '@/components/WidthLimiter';
 
-export default function ArticleSearchBarInner() {
+export default function HeaderInner() {
   return (
     <nav class='sticky top-0 mx-auto bg-zinc-100/70 dark:bg-zinc-900/70 backdrop-blur z-40'>
       <WidthLimiter>

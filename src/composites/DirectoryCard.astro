@@ -1,0 +1,13 @@
+---
+import DirectoryCardInner from './DirectoryCardInner';
+
+const { title, imagePath, backgroundColorPalette, onClick } = Astro.props;
+---
+
+<DirectoryCardInner
+  title={title}
+  imagePath={imagePath}
+  backgroundColorPalette={backgroundColorPalette}
+  onClick={onClick}
+  client:visible
+/>

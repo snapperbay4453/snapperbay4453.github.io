@@ -56,10 +56,12 @@ const breadcrumbs = createBreadcrumbs(pathNode.path)
       />
     </div>
     <section>
-      <Markdown
-        rawContent={directory.rawContent}
-        client:load
-      />
+      <div class='mt-4'>
+        <Markdown
+          rawContent={directory.rawContent}
+          client:load
+        />
+      </div>
       
       <div class='mt-8'>
         {pathNode.path && (

@@ -53,10 +53,12 @@ const breadcrumbs = createBreadcrumbs(pathNode.parentPath)
       />
     </div>
     <section>
-      <Markdown
-        rawContent={article.rawContent}
-        client:load
-      />
+      <div class='mt-4'>
+        <Markdown
+          rawContent={article.rawContent}
+          client:load
+        />
+      </div>
       
       <div class='flex justify-center items-center gap-4 mt-4 mb-8'>
         <Button

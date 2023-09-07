@@ -1,5 +1,7 @@
 ---
 title: 브라우저
+imagePath: /images/browser-logo.png
+backgroundColorPalette: cyan
 ---
 
 # 브라우저

@@ -43,6 +43,23 @@ export const getAllDirectories: () => Directory[] = () => {
   const directories = Object.entries(allDirectories)
   .map(([path, md]) => ({
     path: path.replace('../articles/', '').replace('index.md', '').replace(/\/$/, '') || undefined,
+    imagePath: md.frontmatter.imagePath,
+    backgroundColorPalette: md.frontmatter.backgroundColorPalette,
+    title: md.frontmatter.title,
+    Content: md.Content,
+    rawContent: md.rawContent(),
+  }));
+
+  return directories;
+};
+
+export const getDevelopmentDirectories: () => Directory[] = () => {
+  const allDirectories = import.meta.glob<MarkdownInstance>('../articles/development/*/index.md', { eager: true })
+  const directories = Object.entries(allDirectories)
+  .map(([path, md]) => ({
+    path: path.replace('../articles/', '').replace('index.md', '').replace(/\/$/, '') || undefined,
+    imagePath: md.frontmatter.imagePath,
+    backgroundColorPalette: md.frontmatter.backgroundColorPalette,
     title: md.frontmatter.title,
     Content: md.Content,
     rawContent: md.rawContent(),
