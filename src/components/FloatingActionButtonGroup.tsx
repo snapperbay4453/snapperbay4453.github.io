@@ -41,7 +41,9 @@ export default function FloatingActionButtonGroup({
       </IconButton>
       <div 
       >
-        {open && children}
+        <div class={`${open ? 'opacity-100' : 'opacity-0'} transition-opacity`}>
+          {children}
+        </div>
       </div>
     </div>
   );

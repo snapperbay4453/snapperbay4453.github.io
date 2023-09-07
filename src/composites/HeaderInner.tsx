@@ -2,7 +2,7 @@ import WidthLimiter from '@/components/WidthLimiter';
 
 export default function ArticleSearchBarInner() {
   return (
-    <nav class='sticky top-0 mx-auto bg-zinc-100/70 dark:bg-zinc-900/70 backdrop-blur'>
+    <nav class='sticky top-0 mx-auto bg-zinc-100/70 dark:bg-zinc-900/70 backdrop-blur z-40'>
       <WidthLimiter>
         <div class='flex items-center justify-between relative h-12'>
           <span><a href='/home'>snapperbay4453</a></span>

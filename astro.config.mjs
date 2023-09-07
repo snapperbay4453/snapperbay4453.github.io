@@ -18,6 +18,7 @@ export default defineConfig({
       destination: '/home'
     }
   },
+  server: { port: 3000, host: true },
   vite: {
     plugins: [Icons({
       compiler: 'astro'

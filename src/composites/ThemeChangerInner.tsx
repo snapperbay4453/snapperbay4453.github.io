@@ -5,7 +5,7 @@ import { detectBrowser } from '@/utils/env';
 import { allThemeList, getTheme, changeTheme } from '@/utils/theme';
 
 export default function ThemeChangerInner() {
-  const [theme, setTheme] = useState(getTheme());
+  const [theme, setTheme] = useState<string>('auto');
   const [browserName, setBrowserName] = useState('Unknown');
 
   const circulateTheme = () => {

@@ -1,5 +1,3 @@
-import 'iconify-icon';
-
 import HomeIcon from '~icons/material-symbols/home';
 
 export interface IconifyIcon {

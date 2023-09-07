@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 interface Props {
 	title: string;
 }
@@ -20,6 +22,7 @@ const { title } = Astro.props;
 		<link rel='stylesheet' href='/styles/github-markdown.css'>
 		<meta name='generator' content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
 		<script defer>
 			if(!('theme' in localStorage)) {
 				if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
