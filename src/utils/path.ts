@@ -49,6 +49,9 @@ export const getAllDirectories: () => Directory[] = () => {
     Content: md.Content,
     rawContent: md.rawContent(),
   }));
+  directories.sort((lhs, rhs) => {
+    return lhs.title.localeCompare(rhs.title);
+  });
 
   return directories;
 };
@@ -64,6 +67,9 @@ export const getDevelopmentDirectories: () => Directory[] = () => {
     Content: md.Content,
     rawContent: md.rawContent(),
   }));
+  directories.sort((lhs, rhs) => {
+    return lhs.title.localeCompare(rhs.title);
+  });
 
   return directories;
 };
@@ -77,6 +83,9 @@ export const getAllArticles: () => Article[] = () => {
     Content: md.Content,
     rawContent: md.rawContent(),
   }));
+  articles.sort((lhs, rhs) => {
+    return lhs.title.localeCompare(rhs.title);
+  });
 
   return articles;
 };

@@ -59,18 +59,20 @@ const developmentDirectories = getDevelopmentDirectories();
     
     <div class='flex flex-col items-center mt-16'>
       <p class='text-3xl font-bold'>개발 관련 디렉토리</p>
-      <ol class='mt-4 flex justify-center items-center gap-4 flex-wrap'>
-        {developmentDirectories.map((childDirectory: Directory) => (
-          <li>
-            <DirectoryCard
-              title={childDirectory.title}
-              imagePath={childDirectory.imagePath}
-              backgroundColorPalette={childDirectory.backgroundColorPalette}
-              onClick={`/directories/${childDirectory.path ?? ''}`}
-            />
-          </li>
-        ))}
-      </ol>
+      <div class='mt-8'>
+        <ol class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+          {developmentDirectories.map((childDirectory: Directory) => (
+            <li class='block'>
+              <DirectoryCard
+                title={childDirectory.title}
+                imagePath={childDirectory.imagePath}
+                backgroundColorPalette={childDirectory.backgroundColorPalette}
+                onClick={`/directories/${childDirectory.path ?? ''}`}
+              />
+            </li>
+          ))}
+        </ol>
+      </div>
     </div>
   </MainLayout>
   <BottomFloatingLayout>
