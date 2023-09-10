@@ -1,7 +1,7 @@
 ---
 title: React
 imagePath: /images/react-logo.png
-backgroundColorPalette: blue
+backgroundColorPalette: cyan
 ---
 
 # React
