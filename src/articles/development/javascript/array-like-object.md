@@ -32,7 +32,7 @@ tags: markdown tag01 tag02
 ```javascript
 const convertToArray = (obj) => {
   return [...obj];
-}
+};
 ```
 
 ### Spread 연산자 사용
@@ -46,7 +46,7 @@ const convertToArray = (obj) => {
     result.push(elem);
   };
   return result;
-}
+};
 ```
 
 ### Array.from() 메서드 사용
@@ -54,7 +54,7 @@ const convertToArray = (obj) => {
 ```javascript
 const convertToArray = (obj) => {
   return Array.from(obj);
-}
+};
 ```
 
 ### Object.values() 메서드 사용
@@ -62,7 +62,7 @@ const convertToArray = (obj) => {
 ```javascript
 const convertToArray = (obj) => {
   return Object.values(obj);
-}
+};
 ```
 
 ## 참조

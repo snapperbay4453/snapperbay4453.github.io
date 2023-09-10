@@ -20,7 +20,7 @@ export default function DirectoryCardInner({
             class='absolute -bottom-4 -right-4 h-auto w-28 object-contain'
             src={imagePath}
         ></img>
-        <div class='absolute top-0 left-0 right-0 px-4 pt-4 pb-2 bg-zinc-200/0 dark:bg-zinc-200/0 backdrop-blur'>
+        <div class='absolute top-0 left-0 w-40 pl-4 pt-4'>
           <span
             class='block text-2xl font-bold'
           >
