@@ -4,6 +4,7 @@ import Header from '@/composites/Header.astro';
 import BottomFloatingLayout from '@/layouts/BottomFloatingLayout.astro';
 import Markdown from '@/components/Markdown';
 import LeftSidebarAndMainLayout from '@/layouts/LeftSidebarAndMainLayout.astro';
+import PageScroller from '@/composites/PageScroller.astro';
 import ThemeChanger from '@/composites/ThemeChanger.astro';
 import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
 import VerticalBreadcrumbs from '@/components/VerticalBreadcrumbs';
@@ -113,6 +114,9 @@ const breadcrumbs = createBreadcrumbs(pathNode.path)
     </section>
   </LeftSidebarAndMainLayout>
   <BottomFloatingLayout>
+    <div slot='right'>
+      <PageScroller />
+    </div>
     <div slot='fab'>
       <FloatingActionButtonGroup client:load>
         <ThemeChanger />

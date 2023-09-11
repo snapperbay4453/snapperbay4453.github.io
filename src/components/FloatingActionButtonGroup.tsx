@@ -28,6 +28,12 @@ export default function FloatingActionButtonGroup({
       class='relative flex flex-col-reverse gap-4 z-40'
       ref={floatingActionButtonGroupRef}
     >
+      <div class={`
+        absolute bottom-[calc(115%)] ${open ? 'opacity-100 ' : 'hidden'}
+        transition-opacity
+      `}>
+        {children}
+      </div>
       <IconButton
         onClick={toggleOpen}
       >
@@ -39,12 +45,6 @@ export default function FloatingActionButtonGroup({
           }
         ></i>
       </IconButton>
-      <div 
-      >
-        <div class={`${open ? 'opacity-100' : 'opacity-0'} transition-opacity`}>
-          {children}
-        </div>
-      </div>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import BottomFloatingLayout from '@/layouts/BottomFloatingLayout.astro';
 import TitleAndBodyBannerLayout from '@/layouts/TitleAndBodyBannerLayout.astro'
 import Header from '@/composites/Header.astro';
+import PageScroller from '@/composites/PageScroller.astro';
 import ThemeChanger from '@/composites/ThemeChanger.astro';
 import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
 ---
@@ -19,6 +20,9 @@ import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
     </TitleAndBodyBannerLayout>
   </MainLayout>
   <BottomFloatingLayout>
+    <div slot='right'>
+      <PageScroller />
+    </div>
     <div slot='fab'>
       <FloatingActionButtonGroup client:load>
         <ThemeChanger />

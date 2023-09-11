@@ -6,6 +6,7 @@ import TitleAndBodyBannerLayout from '@/layouts/TitleAndBodyBannerLayout.astro'
 import ArticleSearchBar from '@/composites/ArticleSearchBar.astro';
 import DirectoryCard from '@/composites/DirectoryCard.astro';
 import Header from '@/composites/Header.astro';
+import PageScroller from '@/composites/PageScroller.astro';
 import ThemeChanger from '@/composites/ThemeChanger.astro';
 import BrowserSpecificBox from '@/components/BrowserSpecificBox';
 import Button from '@/components/Button';
@@ -78,6 +79,9 @@ const developmentDirectories = getDevelopmentDirectories();
     </div>
   </MainLayout>
   <BottomFloatingLayout>
+    <div slot='right'>
+      <PageScroller />
+    </div>
     <div slot='fab'>
       <FloatingActionButtonGroup client:load>
         <ThemeChanger />
