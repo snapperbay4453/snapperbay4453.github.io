@@ -1,6 +1,6 @@
 ---
-title: 아토믹 CSS
-tags: markdown tag01 tag02
+title: '아토믹 CSS'
+tags: ['디자인']
 ---
 
 # 아토믹 CSS

@@ -1,0 +1,80 @@
+---
+import RootLayout from '@/layouts/RootLayout.astro';
+import Header from '@/composites/Header.astro';
+import BottomFloatingLayout from '@/layouts/BottomFloatingLayout.astro';
+import LeftSidebarAndMainLayout from '@/layouts/LeftSidebarAndMainLayout.astro';
+import ArticleTagBar from '@/composites/ArticleTagBar.astro';
+import PageScroller from '@/composites/PageScroller.astro';
+import ThemeChanger from '@/composites/ThemeChanger.astro';
+import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
+import {
+  getAllArticles,
+  getAllTags,
+} from '@/utils/path';
+import type { Article } from '@/types/file';
+
+export async function getStaticPaths() {
+  const allTags = getAllTags();
+  const allArticles = getAllArticles();
+  return allTags.map((tag) => ({
+    params: {
+      slug: tag,
+    },
+    props: {
+      tag,
+      allArticles,
+      allTags,
+    },
+  }));
+}
+
+const { tag, allArticles, allTags } = Astro.props;
+const matchedArticles = allArticles.filter((currentArticle: Article) => currentArticle.tags.includes(tag));
+---
+
+<RootLayout title={`${tag} - snapperbay4453`}>
+  <Header />
+  <LeftSidebarAndMainLayout>
+    <div slot='left-sidebar'>
+    </div>
+    <section>
+      <h1 class='text-3xl font-bold'>{`#${tag}`}</h1>
+      <div class='mt-4'>
+        <ArticleTagBar
+          tags={allTags.map((tag: string) => ({
+            label: tag,
+            onClick: `/tags/${tag}`,
+          }))}
+        />
+
+        <ol class='mt-4'>
+          {matchedArticles.map((childArticle: Article) => (
+            <li class='mt-2 first:mt-0'>
+              <a
+                class='flex gap-2 text-lg'
+                href=`/articles/${childArticle.path}`
+              >
+                <i class='icon-[material-symbols--lab-profile-outline-rounded] mt-1'></i>
+                {childArticle.title}
+              </a>
+            </li>
+          ))}
+        </ol>
+
+        {[...matchedArticles].length === 0 && (
+          '이 위치에서 표시할 정보가 없습니다.'
+        )}
+      </div>
+    </section>
+  </LeftSidebarAndMainLayout>
+  <BottomFloatingLayout>
+    <div slot='right'>
+      <PageScroller />
+    </div>
+    <div slot='fab'>
+      <FloatingActionButtonGroup client:load>
+        <ThemeChanger />
+      </FloatingActionButtonGroup>
+    </div>
+  </BottomFloatingLayout>
+</RootLayout>

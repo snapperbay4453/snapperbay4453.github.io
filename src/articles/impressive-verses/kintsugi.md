@@ -1,6 +1,6 @@
 ---
-title: 긴츠기
-tags: markdown tag01 tag02
+title: '긴츠기'
+tags: ['완벽']
 ---
 
 # 긴츠기

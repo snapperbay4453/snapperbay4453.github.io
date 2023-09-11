@@ -40,7 +40,7 @@ export const isAdjacentPath = (path: string, adjacentPathCandidate: string, opti
 
 export const getAllDirectories: () => Directory[] = () => {
   const allDirectories = import.meta.glob<MarkdownInstance>('../articles/**/index.md', { eager: true })
-  const directories = Object.entries(allDirectories)
+  const directories = (Object.entries(allDirectories) as [string, MarkdownInstance][])
   .map(([path, md]) => ({
     path: path.replace('../articles/', '').replace('index.md', '').replace(/\/$/, '') || undefined,
     imagePath: md.frontmatter.imagePath,
@@ -58,7 +58,7 @@ export const getAllDirectories: () => Directory[] = () => {
 
 export const getDevelopmentDirectories: () => Directory[] = () => {
   const allDirectories = import.meta.glob<MarkdownInstance>('../articles/development/*/index.md', { eager: true })
-  const directories = Object.entries(allDirectories)
+  const directories = (Object.entries(allDirectories) as [string, MarkdownInstance][])
   .map(([path, md]) => ({
     path: path.replace('../articles/', '').replace('index.md', '').replace(/\/$/, '') || undefined,
     imagePath: md.frontmatter.imagePath,
@@ -76,18 +76,33 @@ export const getDevelopmentDirectories: () => Directory[] = () => {
 
 export const getAllArticles: () => Article[] = () => {
   const allArticles = import.meta.glob<MarkdownInstance>('../articles/**/!(index).md', { eager: true })
-  const articles = Object.entries(allArticles)
+  const articles = (Object.entries(allArticles) as [string, MarkdownInstance][])
   .map(([path, md]) => ({
     path: path.replace('../articles/', '').replace('.md', ''),
     title: md.frontmatter.title,
     Content: md.Content,
     rawContent: md.rawContent(),
+    tags: md.frontmatter.tags as unknown as string[],
   }));
   articles.sort((lhs, rhs) => {
     return lhs.title.localeCompare(rhs.title);
   });
 
   return articles;
+};
+
+export const getAllTags: () => string[] = () => {
+  const allArticles = import.meta.glob<MarkdownInstance>('../articles/**/!(index).md', { eager: true })
+  const tags = (Object.entries(allArticles) as [string, MarkdownInstance][])
+  .reduce((tagSet, [path, md]) => {
+    const tags = md.frontmatter.tags as unknown as string[];
+    (tags ?? []).forEach(tag => {
+      tagSet.add(tag);
+    });
+    return tagSet;
+  }, new Set<string>());
+
+  return [...tags].sort();
 };
 
 export interface Breadcrumb {

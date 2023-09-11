@@ -1,7 +1,7 @@
 ---
-title: 브라우저
-imagePath: /images/browser-logo.png
-backgroundColorPalette: sky
+title: '브라우저'
+imagePath: '/images/browser-logo.png'
+backgroundColorPalette: 'sky'
 ---
 
 # 브라우저

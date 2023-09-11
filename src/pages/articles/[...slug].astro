@@ -5,6 +5,7 @@ import Header from '@/composites/Header.astro';
 import Markdown from '@/components/Markdown';
 import Button from '@/components/Button';
 import LeftSidebarAndMainLayout from '@/layouts/LeftSidebarAndMainLayout.astro';
+import ArticleTagBar from '@/composites/ArticleTagBar.astro';
 import PageScroller from '@/composites/PageScroller.astro';
 import ThemeChanger from '@/composites/ThemeChanger.astro';
 import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
@@ -19,7 +20,7 @@ import type { Article } from '@/types/file';
 
 export async function getStaticPaths() {
   const allArticles = getAllArticles();
-  return allArticles.map(({ path, title, Content, rawContent }) => ({
+  return allArticles.map(({ path, title, Content, rawContent, tags }) => ({
     params: {
       slug: path
     },
@@ -32,6 +33,7 @@ export async function getStaticPaths() {
         title,
         Content,
         rawContent,
+        tags,
       },
       allArticles,
     },
@@ -54,6 +56,14 @@ const breadcrumbs = createBreadcrumbs(pathNode.parentPath)
       />
     </div>
     <section>
+      <div class='mt-4'>
+        <ArticleTagBar
+          tags={article.tags.map((tag: string) => ({
+            label: tag,
+            onClick: `/tags/${tag}`
+          }))}
+        />
+      </div>
       <div class='mt-4'>
         <Markdown
           rawContent={article.rawContent}

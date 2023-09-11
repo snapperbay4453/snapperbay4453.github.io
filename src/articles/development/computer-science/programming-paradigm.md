@@ -1,6 +1,6 @@
 ---
-title: 프로그래밍 패러다임
-tags: markdown tag01 tag02
+title: '프로그래밍 패러다임'
+tags: []
 ---
 
 # 프로그래밍 패러다임

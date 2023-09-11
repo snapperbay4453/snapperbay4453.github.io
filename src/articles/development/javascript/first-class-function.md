@@ -1,6 +1,6 @@
 ---
-title: 일급 함수
-tags: markdown tag01 tag02
+title: '일급 함수'
+tags: ['객체', '함수']
 ---
 
 # 일급 함수

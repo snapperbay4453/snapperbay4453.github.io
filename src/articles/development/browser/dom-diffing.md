@@ -1,6 +1,6 @@
 ---
-title: DOM 비교
-tags: markdown tag01 tag02
+title: 'DOM 비교'
+tags: ['DOM']
 ---
 
 # DOM 비교

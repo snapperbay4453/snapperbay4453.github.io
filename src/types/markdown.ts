@@ -1,6 +1,5 @@
 interface Frontmatter {
-  title: string;
-  description?: string;
+  [key: string]: string
 }
 export interface MarkdownInstance {
   /* Any data specified in this file's YAML frontmatter */

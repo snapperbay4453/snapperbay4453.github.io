@@ -1,6 +1,6 @@
 ---
-title: 너희들의 힘에 바치는
-tags: markdown tag01 tag02
+title: '너희들의 힘에 바치는'
+tags: ['인간 찬가']
 ---
 
 # 너희들의 힘에 바치는

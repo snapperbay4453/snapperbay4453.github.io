@@ -1,6 +1,6 @@
 ---
-title: 유사배열 객체
-tags: markdown tag01 tag02
+title: '유사배열 객체'
+tags: ['객체']
 ---
 
 # 유사배열 객체

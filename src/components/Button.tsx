@@ -1,6 +1,6 @@
 interface ButtonProps {
   children: any;
-  onClick?: string | (() => void)
+  onClick?: string | (() => void);
 }
 export default function Button({ children, onClick }: ButtonProps) {
   if(typeof onClick === 'string') {

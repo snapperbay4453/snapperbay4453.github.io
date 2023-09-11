@@ -1,0 +1,14 @@
+---
+import ArticleTagBarInner from './ArticleTagBarInner';
+
+export interface ArticleTagBarItem {
+  label: string;
+  onClick?: string | (() => void);
+}
+
+const { tags } = Astro.props;
+---
+
+<ArticleTagBarInner
+  tags={tags}
+/>

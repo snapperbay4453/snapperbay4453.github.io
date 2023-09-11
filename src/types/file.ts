@@ -5,6 +5,7 @@ export interface Article {
   rawContent: {
     rawContent: string;
   };
+  tags: string[];
 }
 
 export interface Directory {

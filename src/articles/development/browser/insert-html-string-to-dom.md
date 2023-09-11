@@ -1,6 +1,6 @@
 ---
-title: HTML 문자열을 DOM에 삽입하는 방법
-tags: markdown tag01 tag02
+title: 'HTML 문자열을 DOM에 삽입하는 방법'
+tags: ['DOM']
 ---
 
 # HTML 문자열을 DOM에 삽입하는 방법

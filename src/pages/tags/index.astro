@@ -1,0 +1,10 @@
+---
+import {
+  getAllTags,
+} from '@/utils/path';
+
+const allTags = getAllTags();
+return Astro.redirect(`/tags/${allTags[0]}`);
+---
+<>
+</>

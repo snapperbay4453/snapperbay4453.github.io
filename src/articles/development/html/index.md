@@ -1,7 +1,7 @@
 ---
-title: HTML
-imagePath: /images/html5-logo.png
-backgroundColorPalette: orange
+title: 'HTML'
+imagePath: '/images/html5-logo.png'
+backgroundColorPalette: 'orange'
 ---
 
 # HTML

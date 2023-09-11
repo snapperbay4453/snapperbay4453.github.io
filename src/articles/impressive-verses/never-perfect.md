@@ -1,6 +1,6 @@
 ---
-title: 완벽은 없음
-tags: markdown tag01 tag02
+title: '완벽은 없음'
+tags: ['완벽']
 ---
 
 # 완벽은 없음

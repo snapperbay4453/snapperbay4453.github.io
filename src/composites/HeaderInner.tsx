@@ -8,6 +8,7 @@ export default function HeaderInner() {
           <span><a href='/home'>snapperbay4453</a></span>
           <div class='flex items-center gap-4'>
             <a href='/directories'>Posts</a>
+            <a href='/tags'>Tags</a>
             <a href='/about'>About</a>
           </div>
         </div>

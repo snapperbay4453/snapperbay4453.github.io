@@ -1,6 +1,6 @@
 ---
-title: Flash of unstyled content
-tags: markdown tag01 tag02
+title: 'Flash of unstyled content'
+tags: ['UX']
 ---
 
 # Flash of unstyled content

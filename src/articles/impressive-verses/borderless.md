@@ -1,6 +1,6 @@
 ---
-title: 경계가 없다는 것
-tags: markdown tag01 tag02
+title: '경계가 없다는 것'
+tags: ['노력']
 ---
 
 # 경계가 없다는 것

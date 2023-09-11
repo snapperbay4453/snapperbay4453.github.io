@@ -1,6 +1,6 @@
 ---
-title: XSS
-tags: markdown tag01 tag02
+title: 'XSS'
+tags: ['보안']
 ---
 
 # XSS

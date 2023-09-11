@@ -1,6 +1,6 @@
 ---
-title: 목적
-tags: markdown tag01 tag02
+title: '목적'
+tags: []
 ---
 
 # 목적

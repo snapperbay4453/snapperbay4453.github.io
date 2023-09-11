@@ -1,6 +1,6 @@
 ---
-title: 반응성
-tags: markdown tag01 tag02
+title: '반응성'
+tags: []
 ---
 
 # 반응성

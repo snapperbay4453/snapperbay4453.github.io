@@ -1,7 +1,7 @@
 ---
-title: 타입스크립트
-imagePath: /images/typescript-logo.png
-backgroundColorPalette: blue
+title: '타입스크립트'
+imagePath: '/images/typescript-logo.png'
+backgroundColorPalette: 'blue'
 ---
 
 # 타입스크립트
