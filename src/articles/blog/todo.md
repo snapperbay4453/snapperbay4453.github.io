@@ -10,10 +10,9 @@ tags: markdown tag01 tag02
 * 목차 생성 기능
 
 * 검색
-  * 문서 제목 및 태그
-  * [https://www.fusejs.io/](https://www.fusejs.io/)
+  * 태그 검색
 
 ## 디자인 개선
 
-* 어두운 모드
-  * Tailwind 자체 기능 활용
+* 모바일 최적화
+  * 모바일에서의 폰트 크기 축소

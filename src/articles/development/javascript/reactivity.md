@@ -1,9 +1,11 @@
 ---
-title: 반응성(Reactivity)
+title: 반응성
 tags: markdown tag01 tag02
 ---
 
-# 반응성(Reactivity)
+# 반응성
+
+반응성(Reactivity)
 
 ## 참조
 

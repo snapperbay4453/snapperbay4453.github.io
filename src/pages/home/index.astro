@@ -42,12 +42,14 @@ const developmentDirectories = getDevelopmentDirectories();
     </TitleAndBodyBannerLayout>
 
     <BrowserSpecificBox browserName='Samsung' client:visible>
-      <Button
-        onClick='/articles/blog/help/samsung-internet-dark-mode'
-      >
-        <span class='truncate'>색상이 이상해요</span>
-        <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
-      </Button>
+      <div class='mx-auto max-w-xs'>
+        <Button
+          onClick='/articles/blog/help/samsung-internet-dark-mode'
+        >
+          <span class='truncate'>색상이 이상해요</span>
+          <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
+        </Button>
+      </div>
     </BrowserSpecificBox>
 
     <div class='flex flex-col items-center mt-8'>
