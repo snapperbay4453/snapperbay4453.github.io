@@ -57,6 +57,16 @@ const convertToArray = (obj) => {
 };
 ```
 
+### Array.prototype.slice.call() 메서드 사용
+
+```javascript
+const convertToArray = (obj) => {
+  return Array.prototype.slice.call(obj);
+  // 또는 아래와 같이 할 수도 있습니다.
+  // return [].slice.call(obj);
+};
+```
+
 ### Object.values() 메서드 사용
 
 ```javascript
