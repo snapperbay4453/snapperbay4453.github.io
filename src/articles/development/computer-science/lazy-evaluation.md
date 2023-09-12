@@ -36,7 +36,7 @@ console.log(list); // [0, 1, 2, 3, 4]
 console.log(reduce(add, list)); // 10
 
 var lazyList = Lazy.range(5);
-console.log(lazyList); // L.range {<suspended>}
+console.log(lazyList); // Lazy.range {<suspended>}
 console.log(reduce(add, lazyList)); // 10
 ```
 

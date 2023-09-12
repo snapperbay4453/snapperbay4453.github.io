@@ -1,9 +1,11 @@
+import Card from '@/components/Card';
+
 interface DirectoryCardInnerProps {
   title: string;
   description?: string;
   imagePath?: string;
   backgroundColorPalette?: string;
-  onClick?: string | (() => void)
+  onClick?: string | (() => void);
 }
 
 export default function DirectoryCardInner({
@@ -13,23 +15,22 @@ export default function DirectoryCardInner({
   backgroundColorPalette,
   onClick,
 }: DirectoryCardInnerProps) {
-  const renderCard = () => {
-    return (
+  return (
+    <Card
+    onClick={onClick}
+    >
       <div class={`
-        relative border-2 border-zinc-200 dark:border-zinc-800 rounded-3xl
-        hover:bg-zinc-200 dark:hover:bg-zinc-800
         h-20 w-60 max-w-[80vw]
         sm:h-40
-        overflow-hidden
       `}>
         <img
-            class={`
-              absolute
-              -bottom-1 -right-1 h-auto w-14
-              sm:-bottom-4 sm:-right-4 sm:h-auto sm:w-28
-              object-contain
-            `}
-            src={imagePath}
+          class={`
+            absolute
+            -bottom-1 -right-1 h-auto w-14
+            sm:-bottom-4 sm:-right-4 sm:h-auto sm:w-28
+            object-contain
+          `}
+          src={imagePath}
         ></img>
         <div class={`
           absolute
@@ -48,26 +49,6 @@ export default function DirectoryCardInner({
           </span>
         </div>
       </div>
-    );
-  }
-
-  if(typeof onClick === 'string') {
-    return (
-      <a
-        class='block'
-        href={onClick}
-      >
-        {renderCard()}
-      </a>
-    );
-  } else {
-    return (
-      <button
-        class='block'
-        onClick={onClick}
-      >
-        {renderCard()}
-      </button>
-    );
-  }
+    </Card>
+  );
 }

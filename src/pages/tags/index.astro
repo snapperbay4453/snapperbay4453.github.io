@@ -1,10 +1,61 @@
 ---
+import RootLayout from '@/layouts/RootLayout.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
+import BottomFloatingLayout from '@/layouts/BottomFloatingLayout.astro';
+import TitleBannerLayout from '@/layouts/TitleBannerLayout.astro'
+import Header from '@/composites/Header.astro';
+import PageScroller from '@/composites/PageScroller.astro';
+import ThemeChanger from '@/composites/ThemeChanger.astro';
+import Card from '@/components/Card';
+import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
 import {
+  getAllArticles,
   getAllTags,
 } from '@/utils/path';
+import {
+  groupByKey,
+} from '@/utils/array';
 
-const allTags = getAllTags();
-return Astro.redirect(`/tags/${allTags[0]}`);
+const allArticles = getAllArticles() ?? [];
+const allTags = getAllTags() ?? [];
+const groupedAllArticles = groupByKey(allArticles, 'tags');
 ---
-<>
-</>
+
+<RootLayout title={`${'About'} - snapperbay4453`}>
+  <Header />
+  <MainLayout>
+    <TitleBannerLayout
+      title='태그'
+      subtitle={`총 ${allTags.length}개의 태그가 있습니다.`}
+    />
+    <div class='flex gap-4 justify-center flex-wrap'>
+      {allTags.map(tag => (
+        <Card
+          onClick={`/tags/${tag ?? ''}`}
+        >
+          <div class={`
+            h-20 w-56 max-w-[80vw]
+            px-4 py-2
+          `}>
+            <div class='text-lg font-bold'>
+              #{tag}
+            </div>
+            <div class=''>
+              총 {groupedAllArticles[tag].length}개의 글
+            </div>
+          </div>
+        </Card>
+      ))}
+    </div>
+  </MainLayout>
+  <BottomFloatingLayout>
+    <div slot='right'>
+      <PageScroller />
+    </div>
+    <div slot='fab'>
+      <FloatingActionButtonGroup client:load>
+        <ThemeChanger />
+      </FloatingActionButtonGroup>
+    </div>
+  </BottomFloatingLayout>
+</RootLayout>

@@ -17,7 +17,7 @@ tags: []
 
 자바스크립트에서, { value, done } 객체를 리턴하는 next 메서드를 구현한 객체는 이터레이터(Iterator, 순회자)로 간주할 수 있습니다. 해당 객체를 next 메서드로 호출하게 되면 현재 순회 중인 위치의 값 및 순회 종료 여부를 알 수 있습니다.
 
-아래 코드는 이터레이터를 만드는 예시로, 이터레이터의 선택적 메서드읜 return 및 throw가 추가적으로 있습니다.
+아래 코드는 이터레이터를 만드는 예시로, 이터레이터의 선택적 메서드인 return 및 throw가 추가적으로 있습니다.
 
 ```javascript
 const BaseIterator = {
@@ -58,7 +58,7 @@ function* makeRangeIterator(start = 0, end = Infinity, step = 1) {
 
 자바스크립트에는 비동기 흐름에서 사용할 수 있는, 비동기 이터러블 및 비동기 이터레이터라는 별도의 프로토콜 쌍이 있습니다.
 
-자바스크립트에서 객체가 비동기 이터러블이 되기 위해서는 다음 조건을 만족해야 합니다. 보다시피, Symbol.iterator 대신 Symbol.asyncInterator를 구현해야 합니다.
+자바스크립트에서 객체가 비동기 이터러블이 되기 위해서는 다음 조건을 만족해야 합니다. 보다시피, Symbol.iterator 대신 Symbol.asyncIterator를 구현해야 합니다.
 
 1. 객체에 Symbol.asyncIterator 키가 있는 속성이 있어야 합니다. 이는 다시 말해 @@asyncIterator 메서드를 구현하는 것을 의미합니다.
 

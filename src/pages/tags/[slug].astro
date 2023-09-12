@@ -2,10 +2,12 @@
 import RootLayout from '@/layouts/RootLayout.astro';
 import Header from '@/composites/Header.astro';
 import BottomFloatingLayout from '@/layouts/BottomFloatingLayout.astro';
-import LeftSidebarAndMainLayout from '@/layouts/LeftSidebarAndMainLayout.astro';
+import TitleBannerLayout from '@/layouts/TitleBannerLayout.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
 import ArticleTagBar from '@/composites/ArticleTagBar.astro';
 import PageScroller from '@/composites/PageScroller.astro';
 import ThemeChanger from '@/composites/ThemeChanger.astro';
+import Button from '@/components/Button';
 import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
 import {
   getAllArticles,
@@ -34,11 +36,12 @@ const matchedArticles = allArticles.filter((currentArticle: Article) => currentA
 
 <RootLayout title={`${tag} - snapperbay4453`}>
   <Header />
-  <LeftSidebarAndMainLayout>
-    <div slot='left-sidebar'>
-    </div>
+  <MainLayout>
+    <TitleBannerLayout
+      title={`#${tag}`}
+      subtitle={`총 ${matchedArticles.length}개의 글이 있습니다.`}
+    />
     <section>
-      <h1 class='text-3xl font-bold'>{`#${tag}`}</h1>
       <div class='mt-4'>
         <ArticleTagBar
           tags={allTags.map((tag: string) => ({
@@ -47,7 +50,7 @@ const matchedArticles = allArticles.filter((currentArticle: Article) => currentA
           }))}
         />
 
-        <ol class='mt-4'>
+        <ol class='mt-8'>
           {matchedArticles.map((childArticle: Article) => (
             <li class='mt-2 first:mt-0'>
               <a
@@ -66,7 +69,16 @@ const matchedArticles = allArticles.filter((currentArticle: Article) => currentA
         )}
       </div>
     </section>
-  </LeftSidebarAndMainLayout>
+    <div class='flex justify-center items-center gap-4 mt-4'>
+      <Button
+        onClick={'/tags'}
+        client:visible
+      >
+        <i class='icon-[material-symbols--arrow-back-rounded]'></i>
+        <span class='truncate'>뒤로가기</span>
+      </Button>
+    </div>
+  </MainLayout>
   <BottomFloatingLayout>
     <div slot='right'>
       <PageScroller />
