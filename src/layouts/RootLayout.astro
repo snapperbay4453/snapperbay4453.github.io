@@ -53,6 +53,14 @@ const { title } = Astro.props;
 				html.classList.remove('dark')
 			}
 		</script>
+		<!-- Google tag (gtag.js) -->
+		<script async src=`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.G_ANALYTICS_ID}`></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', import.meta.env.G_ANALYTICS_ID);
+		</script>
 	</head>
 	<body class='bg-zinc-100 dark:bg-zinc-900 text-black dark:text-white'>
 		<h1 class='sr-only'>snapperbay4453.github.io</h1>
