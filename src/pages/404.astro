@@ -24,6 +24,13 @@ import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
         <span class='truncate'>홈으로 이동</span>
         <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
       </Button>
+      <Button
+        onClick='javascript:history.back()'
+        client:visible
+      >
+        <span class='truncate'>뒤로가기</span>
+        <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
+      </Button>
     </TitleAndBodyBannerLayout>
   </MainLayout>
   <BottomFloatingLayout>

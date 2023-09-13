@@ -70,11 +70,11 @@ export default function ArticleSearchBarInner({ articles }: ArticleSearchBarInne
       class='relative'
     >
       <input
-        class='w-full px-4 py-2 border-2 rounded-3xl bg-zinc-100 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800'
+        class='w-80 max-w-[80vw] px-4 py-2 border-2 rounded-3xl bg-zinc-100 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800'
         type='text'
         value={query}
         onInput={handleOnSearch}
-        placeholder='키워드를 입력하세요'
+        placeholder='키워드를 입력하세요.'
       />
       {isOpen && (
         <div
