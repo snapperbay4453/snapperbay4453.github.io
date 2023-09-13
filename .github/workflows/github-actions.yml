@@ -18,6 +18,8 @@ jobs:
         run: npm install
 
       - name: Build
+        env:
+          G_ANALYTICS_ID: ${{ secrets.G_ANALYTICS_ID }}
         run: npm run build
 
       - name: Deploy
