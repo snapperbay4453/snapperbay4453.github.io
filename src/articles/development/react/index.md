@@ -1,6 +1,6 @@
 ---
 title: 'React'
-imagePath: '/images/react-logo.png'
+imagePath: '/images/logos/react-logo.png'
 backgroundColorPalette: 'cyan'
 ---
 

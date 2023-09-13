@@ -1,6 +1,6 @@
 ---
 title: '자바스크립트'
-imagePath: '/images/javascript-logo.png'
+imagePath: '/images/logos/javascript-logo.png'
 backgroundColorPalette: 'amber'
 ---
 

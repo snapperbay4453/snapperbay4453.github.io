@@ -1,6 +1,6 @@
 ---
 title: 'CSS / 디자인 시스템'
-imagePath: '/images/css3-logo.png'
+imagePath: '/images/logos/css3-logo.png'
 backgroundColorPalette: 'cyan'
 ---
 

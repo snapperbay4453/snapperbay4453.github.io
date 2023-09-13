@@ -1,6 +1,6 @@
 ---
 title: 'HTML'
-imagePath: '/images/html5-logo.png'
+imagePath: '/images/logos/html5-logo.png'
 backgroundColorPalette: 'orange'
 ---
 

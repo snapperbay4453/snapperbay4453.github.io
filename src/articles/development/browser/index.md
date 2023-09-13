@@ -1,6 +1,6 @@
 ---
 title: '브라우저'
-imagePath: '/images/browser-logo.png'
+imagePath: '/images/logos/browser-logo.png'
 backgroundColorPalette: 'sky'
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: '컴퓨터과학'
-imagePath: '/images/computer-science-logo.png'
+imagePath: '/images/logos/computer-science-logo.png'
 backgroundColorPalette: 'violet'
 ---
 
