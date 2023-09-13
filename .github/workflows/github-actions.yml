@@ -17,9 +17,13 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build
+      - name: Create .env file
+        run: |
+          jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' <<< "$SECRETS_CONTEXT" > .env
         env:
-          G_ANALYTICS_ID: ${{ secrets.G_ANALYTICS_ID }}
+          SECRETS_CONTEXT: ${{ toJson(secrets) }}
+
+      - name: Build
         run: npm run build
 
       - name: Deploy
