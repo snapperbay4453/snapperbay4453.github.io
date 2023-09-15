@@ -1,0 +1,56 @@
+---
+import RootLayout from '@/layouts/RootLayout.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
+import BottomFloatingLayout from '@/layouts/BottomFloatingLayout.astro';
+import TitleAndBodyBannerLayout from '@/layouts/TitleAndBodyBannerLayout.astro'
+import Header from '@/composites/Header.astro';
+import PageScroller from '@/composites/PageScroller.astro';
+import ThemeChanger from '@/composites/ThemeChanger.astro';
+import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
+
+interface AppLink {
+  title: string;
+  path: string;
+}
+const appsLink: AppLink[] = [
+  { title: 'i18n-xlsx-to-json-directory', path: '/apps/i18n-xlsx-to-json-directory' }
+];
+
+---
+
+<RootLayout title={`${'앱'} - snapperbay4453`}>
+  <Header />
+  <MainLayout>
+    <TitleAndBodyBannerLayout
+      title='앱'
+      subtitle='라이브 애플리케이션'
+    >
+      <></>
+    </TitleAndBodyBannerLayout>
+    <div class='mt-8'>
+      <ol class='mt-4'>
+        {appsLink.map((appLink: AppLink) => (
+          <li class='mt-2 first:mt-0'>
+            <a
+              class='flex gap-2 text-lg'
+              href={appLink.path}
+            >
+              <i class='icon-[material-symbols--select-window] mt-1''></i>
+              <span>{appLink.title}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </MainLayout>
+  <BottomFloatingLayout>
+    <div slot='right'>
+      <PageScroller />
+    </div>
+    <div slot='fab'>
+      <FloatingActionButtonGroup client:load>
+        <ThemeChanger />
+      </FloatingActionButtonGroup>
+    </div>
+  </BottomFloatingLayout>
+</RootLayout>

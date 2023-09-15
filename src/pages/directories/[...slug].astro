@@ -84,7 +84,7 @@ const breadcrumbs = createBreadcrumbs(pathNode.path)
             <li class='mt-2 first:mt-0'>
               <a
                 class='flex gap-2 text-lg'
-                href=`/directories/${childDirectory.path}`
+                href={`/directories/${childDirectory.path}`}
               >
                 <i class='icon-[material-symbols--folder-outline-rounded] mt-1''></i>
                 <span>{childDirectory.title}</span>
@@ -98,7 +98,7 @@ const breadcrumbs = createBreadcrumbs(pathNode.path)
             <li class='mt-2 first:mt-0'>
               <a
                 class='flex gap-2 text-lg'
-                href=`/articles/${childArticle.path}`
+                href={`/articles/${childArticle.path}`}
               >
                 <i class='icon-[material-symbols--lab-profile-outline-rounded] mt-1'></i>
                 {childArticle.title}

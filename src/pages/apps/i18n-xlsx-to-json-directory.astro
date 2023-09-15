@@ -1,0 +1,45 @@
+---
+import RootLayout from '@/layouts/RootLayout.astro';
+import MainLayout from '@/layouts/MainLayout.astro';
+import BottomFloatingLayout from '@/layouts/BottomFloatingLayout.astro';
+import TitleAndBodyBannerLayout from '@/layouts/TitleAndBodyBannerLayout.astro'
+import Header from '@/composites/Header.astro';
+import PageScroller from '@/composites/PageScroller.astro';
+import ThemeChanger from '@/composites/ThemeChanger.astro';
+import XlsxToJsonDirectory from '@/composites/XlsxToJsonDirectory.astro';
+import Button from '@/components/Button';
+import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
+
+---
+
+<RootLayout title={`${'i18n-xlsx-to-json-directory'} - snapperbay4453`}>
+  <Header />
+  <MainLayout>
+    <TitleAndBodyBannerLayout
+      title='i18n-xlsx-to-json-directory'
+      subtitle='XLSX를 JSON 디렉토리로 변환'
+    >
+      <></>
+    </TitleAndBodyBannerLayout>
+    <XlsxToJsonDirectory />
+    <div class='flex justify-center items-center gap-4 mt-8'>
+      <Button
+        onClick='javascript:history.back()'
+        client:visible
+      >
+        <i class='icon-[material-symbols--arrow-back-rounded]'></i>
+        <span class='truncate'>뒤로가기</span>
+      </Button>
+    </div>
+  </MainLayout>
+  <BottomFloatingLayout>
+    <div slot='right'>
+      <PageScroller />
+    </div>
+    <div slot='fab'>
+      <FloatingActionButtonGroup client:load>
+        <ThemeChanger />
+      </FloatingActionButtonGroup>
+    </div>
+  </BottomFloatingLayout>
+</RootLayout>
