@@ -30,51 +30,64 @@ const developmentDirectories = getDevelopmentDirectories();
         onClick='/directories'
         client:visible
       >
-        <span class='truncate'>모든 글 보기</span>
-        <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
-      </Button>
-      <Button
-        onClick='/apps'
-        client:visible
-      >
-        <span class='truncate'>모든 앱 보기</span>
+        <span class='truncate'>루트 디렉토리 보기</span>
         <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
       </Button>
     </TitleAndBodyBannerLayout>
 
-    <BrowserSpecificBox browserName='Samsung' client:visible>
-      <div class='mx-auto max-w-xs'>
-        <Button
-          onClick='/articles/blog/help/samsung-internet-dark-mode'
-        >
-          <span class='truncate'>색상이 이상해요</span>
-          <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
-        </Button>
-      </div>
-    </BrowserSpecificBox>
+    <div class='mt-8'>
+      <BrowserSpecificBox browserName='Samsung' client:visible>
+        <div class='grow flex justify-center items-center gap-2 flex-wrap'>
+          <Button
+            onClick='/articles/blog/help/samsung-internet-dark-mode'
+          >
+            <span class='truncate'>색상이 이상해요</span>
+            <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
+          </Button>
+        </div>
+      </BrowserSpecificBox>
 
-    <div class='flex flex-col items-center mt-8'>
-      <p class='text-3xl font-bold'>검색</p>
-      <div class='mt-4'>
-        <ArticleSearchBar />
+      <div class='flex flex-col items-center mt-16'>
+        <p class='text-3xl font-bold'>검색</p>
+        <div class='mt-4'>
+          <ArticleSearchBar />
+        </div>
       </div>
-    </div>
-    
-    <div class='flex flex-col items-center mt-16'>
-      <p class='text-3xl font-bold'>개발 관련 디렉토리</p>
-      <div class='mt-8'>
-        <ol class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-          {developmentDirectories.map((childDirectory: Directory) => (
-            <li class='block'>
-              <DirectoryCard
-                title={childDirectory.title}
-                imagePath={childDirectory.imagePath}
-                backgroundColorPalette={childDirectory.backgroundColorPalette}
-                onClick={`/directories/${childDirectory.path ?? ''}`}
-              />
-            </li>
-          ))}
-        </ol>
+      
+      <div class='flex flex-col items-center mt-16'>
+        <p class='text-3xl font-bold'>개발 관련 디렉토리</p>
+        <div class='mt-8'>
+          <ol class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+            {developmentDirectories.map((childDirectory: Directory) => (
+              <li class='block'>
+                <DirectoryCard
+                  title={childDirectory.title}
+                  imagePath={childDirectory.imagePath}
+                  backgroundColorPalette={childDirectory.backgroundColorPalette}
+                  onClick={`/directories/${childDirectory.path ?? ''}`}
+                />
+              </li>
+            ))}
+          </ol>
+        </div>
+      </div>
+
+      <div class='flex flex-col items-center mt-16'>
+        <p class='text-3xl font-bold'>기타 디렉토리</p>
+        <div class='grow flex justify-center items-center gap-2 flex-wrap mt-8'>
+          <Button
+            onClick='/apps'
+          >
+            <span class='truncate'>앱</span>
+            <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
+          </Button>
+          <Button
+            onClick='/directories/diary'
+          >
+            <span class='truncate'>다이어리</span>
+            <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
+          </Button>
+        </div>
       </div>
     </div>
   </MainLayout>
