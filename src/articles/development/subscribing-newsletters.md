@@ -24,5 +24,9 @@ tags: []
 
 * [http://kotlinweekly.net/](http://kotlinweekly.net/)
 
+## 디자인
+
+* [https://designcompass.org/](https://designcompass.org/)
+
 ## Etc
 * [https://webrtcweekly.com/](https://webrtcweekly.com/)

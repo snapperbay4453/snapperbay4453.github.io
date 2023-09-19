@@ -1,11 +1,10 @@
 import { useState, useRef } from 'preact/hooks';
 import {
-  createTemplateI18nXlsx,
-  convertI18XlsxToJsonDirectoryZip,
-  convertJsonDirectoryZipToI18Xlsx
-} from 'i18n-xlsx-to-json-directory';
+  createTemplateXlsx,
+  convertXlsxToZip,
+  convertZipToXlsx,
+} from 'i18n-xlsx-to-json-directory/browser';
 import Button from '@/components/Button';
-import Card from '@/components/Card';
 
 export default function HeaderInner() {
   const xlsxFileInputRef = useRef<HTMLInputElement>();
@@ -14,14 +13,14 @@ export default function HeaderInner() {
   const [jsonZipFilename, setJsonZipFilename] = useState<string>();
 
   const downloadI18nJsonZip = () => {
-    if(fileInputRef?.current) {
-      convertI18XlsxToJsonDirectoryZip((fileInputRef.current.files ?? [])[0]);
+    if(xlsxFileInputRef?.current) {
+      convertXlsxToZip((xlsxFileInputRef.current.files ?? [])[0]);
     }
   };
 
   const downloadI18nXlsx = () => {
     if(jsonZipFileInputRef?.current) {
-      convertJsonDirectoryZipToI18Xlsx((jsonZipFileInputRef.current.files ?? [])[0]);
+      convertZipToXlsx((jsonZipFileInputRef.current.files ?? [])[0]);
     }
   };
 
@@ -30,7 +29,7 @@ export default function HeaderInner() {
       <div class='mt-8'>
         <div class='flex items-center gap-4'>
           <Button
-            onClick={() => createTemplateI18nXlsx()}
+            onClick={() => createTemplateXlsx()}
           >
             .xlsx 템플릿 다운로드
           </Button>
