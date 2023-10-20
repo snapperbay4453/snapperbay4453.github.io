@@ -1,11 +1,10 @@
 import { useState, useRef } from 'preact/hooks';
 import {
   createTemplateXlsx,
-  convertXlsxToZip,
-  convertZipToXlsx,
+  convertXlsxToJsonZip,
+  convertJsonZipToXlsx,
 } from 'i18n-xlsx-to-json-directory/browser';
 import Button from '@/components/Button';
-import Card from '@/components/Card';
 
 export default function HeaderInner() {
   const xlsxFileInputRef = useRef<HTMLInputElement>();
@@ -15,13 +14,13 @@ export default function HeaderInner() {
 
   const downloadI18nJsonZip = () => {
     if(xlsxFileInputRef?.current) {
-      convertXlsxToZip((xlsxFileInputRef.current.files ?? [])[0]);
+      convertXlsxToJsonZip((xlsxFileInputRef.current.files ?? [])[0]);
     }
   };
 
   const downloadI18nXlsx = () => {
     if(jsonZipFileInputRef?.current) {
-      convertZipToXlsx((jsonZipFileInputRef.current.files ?? [])[0]);
+      convertJsonZipToXlsx((jsonZipFileInputRef.current.files ?? [])[0]);
     }
   };
 
