@@ -1,0 +1,1 @@
+import{p as r}from"./hooks.module.c1775b87.js";const o=(e,n)=>{const t=c=>{e.current&&!e.current.contains(c.target)&&n()};r(()=>(document.addEventListener("click",t),()=>{document.removeEventListener("click",t)}))};export{o as u};

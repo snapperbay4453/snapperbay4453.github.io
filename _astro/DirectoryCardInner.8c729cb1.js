@@ -1,4 +1,4 @@
-import{o as r}from"./jsxRuntime.module.1b1126d6.js";import"./preact.module.4d513d4a.js";function l({children:o,onClick:t}){const e=()=>r("div",{class:`
+import{o as r}from"./jsxRuntime.module.5efcb3d3.js";import"./preact.module.ac6080a5.js";function l({children:o,onClick:t}){const e=()=>r("div",{class:`
           relative border-2 border-zinc-200 dark:border-zinc-800 rounded-3xl
           hover:bg-zinc-200 dark:hover:bg-zinc-800
           cursor-pointer

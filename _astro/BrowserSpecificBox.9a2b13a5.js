@@ -1,1 +1,0 @@
-import{h as n,p as m}from"./hooks.module.b1431384.js";import{d as c}from"./env.a1270467.js";import{o as i}from"./jsxRuntime.module.1b1126d6.js";import"./preact.module.4d513d4a.js";function f({browserName:r,children:e}){const[o,t]=n("Unknown");return m(()=>{const s=c();t(s)},[]),i("div",{children:o.toLowerCase()===r.toLowerCase()&&e})}export{f as default};
