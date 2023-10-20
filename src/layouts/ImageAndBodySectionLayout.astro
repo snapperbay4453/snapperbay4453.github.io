@@ -4,17 +4,40 @@ const { title, subtitle, imagePath, imageDirection } = Astro.props;
 const flexDirection: FlexDirection = (imageDirection === 'right') ? 'right' : 'left';
 ---
 
-<div class='sm:hidden mb-4 sm:mb-0'>
-  <div class='flex flex-col items-center mx-auto'>
-    {imagePath ? (
+<div>
+  <div class='sm:hidden mb-4 sm:mb-0'>
+    <div class='flex flex-col items-center mx-auto'>
+      {imagePath ? (
+        <div class={`
+          relative
+          h-auto w-[75vw] max-w-[360px]
+          basis-1/2
+        `}>
+          <img
+            class={`
+              h-auto m-auto
+              object-contain
+              rounded-3xl
+            `}
+            src={imagePath}
+          ></img>
+        </div>
+      ) : ''}
+    </div>
+  </div>
+  
+  <div class='flex gap-8 max-w-3xl mx-auto'>
+    {imagePath && (flexDirection === 'left') ? (
       <div class={`
+        hidden sm:block
         relative
-        h-auto w-[75vw] max-w-[360px]
         basis-1/2
+        shrink-0
       `}>
         <img
           class={`
-            h-auto m-auto
+            h-auto w-full
+            m-auto
             object-contain
             rounded-3xl
           `}
@@ -22,49 +45,28 @@ const flexDirection: FlexDirection = (imageDirection === 'right') ? 'right' : 'l
         ></img>
       </div>
     ) : ''}
-  </div>
-</div>
-
-<div class='flex gap-8 max-w-3xl mx-auto'>
-  {imagePath && (flexDirection === 'left') ? (
-    <div class={`
-      hidden sm:block
-      relative
-      basis-1/2
-      shrink-0
-    `}>
-      <img
-        class={`
-          h-auto w-full
-          m-auto
-          object-contain
-          rounded-3xl
-        `}
-        src={imagePath}
-      ></img>
+    <div class='flex flex-col gap-2 md:basis-1/2'>
+      {title ? <p class='text-2xl font-bold text-center'>{title}</p> : ''}
+      {subtitle ? <p class='text-xl text-center'>{subtitle}</p> : ''}
+      <slot />
     </div>
-  ) : ''}
-  <div class='flex flex-col gap-2 md:basis-1/2'>
-    {title ? <p class='text-2xl font-bold text-center'>{title}</p> : ''}
-    {subtitle ? <p class='text-xl text-center'>{subtitle}</p> : ''}
-    <slot />
-  </div>
-  {imagePath && (flexDirection === 'right') ? (
-    <div class={`
-      hidden sm:block
-      relative
-      basis-1/2
-      shrink-0
-    `}>
-      <img
-        class={`
-          h-auto w-full max-w-[360px]
-          m-auto
-          object-contain
-          rounded-3xl
-        `}
-        src={imagePath}
-      ></img>
-    </div>
-  ) : ''}
+    {imagePath && (flexDirection === 'right') ? (
+      <div class={`
+        hidden sm:block
+        relative
+        basis-1/2
+        shrink-0
+      `}>
+        <img
+          class={`
+            h-auto w-full max-w-[360px]
+            m-auto
+            object-contain
+            rounded-3xl
+          `}
+          src={imagePath}
+        ></img>
+      </div>
+    ) : ''}
+  </div>  
 </div>
