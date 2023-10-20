@@ -16,7 +16,7 @@ const flexDirection: FlexDirection = (imageDirection === 'right') ? 'right' : 'l
         `}>
           <img
             class={`
-              h-auto w-auto m-auto
+              h-auto w-auto
               object-contain
               rounded-3xl
             `}
@@ -27,19 +27,17 @@ const flexDirection: FlexDirection = (imageDirection === 'right') ? 'right' : 'l
     </div>
   </div>
   
-  <div class='flex gap-8 max-w-3xl mx-auto'>
+  <div class='grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto'>
     {imagePath && (flexDirection === 'left') ? (
       <div class={`
         hidden sm:block
         relative
         h-[240px] min-h-[240px]
-        basis-1/2
         shrink-0
       `}>
         <img
           class={`
             h-auto w-auto
-            m-auto
             object-contain
             rounded-3xl
           `}
@@ -47,7 +45,7 @@ const flexDirection: FlexDirection = (imageDirection === 'right') ? 'right' : 'l
         ></img>
       </div>
     ) : ''}
-    <div class='flex flex-col gap-2 mx-auto md:basis-1/2'>
+    <div class='flex flex-col gap-2 mx-auto sm:basis-1/2'>
       {title ? <p class='text-2xl font-bold text-center'>{title}</p> : ''}
       {subtitle ? <p class='text-xl text-center'>{subtitle}</p> : ''}
       <slot />
@@ -57,13 +55,11 @@ const flexDirection: FlexDirection = (imageDirection === 'right') ? 'right' : 'l
         hidden sm:block
         relative
         h-[240px] min-h-[240px]
-        basis-1/2
         shrink-0
       `}>
         <img
           class={`
-            h-auto w-auto max-w-[360px]
-            m-auto
+            h-auto w-auto
             object-contain
             rounded-3xl
           `}
