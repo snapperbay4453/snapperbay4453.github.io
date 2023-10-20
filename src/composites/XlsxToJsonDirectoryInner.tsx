@@ -5,6 +5,7 @@ import {
   convertZipToXlsx,
 } from 'i18n-xlsx-to-json-directory/browser';
 import Button from '@/components/Button';
+import Card from '@/components/Card';
 
 export default function HeaderInner() {
   const xlsxFileInputRef = useRef<HTMLInputElement>();
@@ -25,9 +26,14 @@ export default function HeaderInner() {
   };
 
   return (
-    <div class='flex flex-col items-center gap-4'>
-      <div class='mt-8'>
-        <div class='flex items-center gap-4'>
+    <div class={`
+      flex flex-col items-center gap-4
+      relative border-2 border-zinc-200 dark:border-zinc-800 rounded-3xl
+      mx-auto max-w-[360px] py-8
+    `}>
+      <div>
+        <div class='flex flex-col items-center gap-4 p-4'>
+          <p class='text-2xl font-bold text-center'>시작하기</p>
           <Button
             onClick={() => createTemplateXlsx()}
           >
@@ -36,7 +42,7 @@ export default function HeaderInner() {
         </div>
       </div>
       <div class='flex flex-col items-center gap-4 p-4 mt-8'>
-        <p class='text-2xl font-bold text-center'>XLSX → JSON</p>
+        <p class='text-2xl font-bold text-center'>XLSX → JSON 디렉토리</p>
         <Button
           onClick={() => xlsxFileInputRef.current?.click()}
         >
@@ -65,7 +71,7 @@ export default function HeaderInner() {
         )}
       </div>
       <div class='flex flex-col items-center gap-4 p-4 mt-8'>
-        <p class='text-2xl font-bold text-center'>JSON → XLSX</p>
+        <p class='text-2xl font-bold text-center'>JSON 디렉토리 → XLSX</p>
         <Button
           onClick={() => jsonZipFileInputRef.current?.click()}
         >

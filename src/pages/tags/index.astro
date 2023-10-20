@@ -2,7 +2,7 @@
 import RootLayout from '@/layouts/RootLayout.astro';
 import MainLayout from '@/layouts/MainLayout.astro';
 import BottomFloatingLayout from '@/layouts/BottomFloatingLayout.astro';
-import TitleBannerLayout from '@/layouts/TitleBannerLayout.astro'
+import TitleAndImageBannerLayout from '@/layouts/TitleAndImageBannerLayout.astro';
 import Header from '@/composites/Header.astro';
 import PageScroller from '@/composites/PageScroller.astro';
 import ThemeChanger from '@/composites/ThemeChanger.astro';
@@ -24,9 +24,10 @@ const groupedAllArticles = groupByKey(allArticles, 'tags');
 <RootLayout title={`${'About'} - snapperbay4453`}>
   <Header />
   <MainLayout>
-    <TitleBannerLayout
+    <TitleAndImageBannerLayout
       title='태그'
       subtitle={`총 ${allTags.length}개의 태그가 있습니다.`}
+      imagePath='/images/logos/tag-logo.png'
     />
     <div class='flex gap-4 justify-center flex-wrap'>
       {allTags.map(tag => (

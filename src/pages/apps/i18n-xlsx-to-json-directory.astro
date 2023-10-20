@@ -2,6 +2,7 @@
 import RootLayout from '@/layouts/RootLayout.astro';
 import MainLayout from '@/layouts/MainLayout.astro';
 import BottomFloatingLayout from '@/layouts/BottomFloatingLayout.astro';
+import ImageAndBodySectionLayout from '@/layouts/ImageAndBodySectionLayout.astro';
 import TitleAndBodyBannerLayout from '@/layouts/TitleAndBodyBannerLayout.astro'
 import Header from '@/composites/Header.astro';
 import PageScroller from '@/composites/PageScroller.astro';
@@ -16,12 +17,7 @@ import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
   <MainLayout>
     <TitleAndBodyBannerLayout
       title='i18n-xlsx-to-json-directory'
-      subtitle='XLSX를 JSON 디렉토리로 변환'
     >
-      <></>
-    </TitleAndBodyBannerLayout>
-    <XlsxToJsonDirectory />
-    <div class='flex justify-center items-center gap-4 mt-16'>
       <Button
         onClick='https://github.com/snapperbay4453/i18n-xlsx-to-json-directory'
         client:visible
@@ -29,8 +25,34 @@ import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
         <span class='truncate'>GitHub 리포지토리</span>
         <i class='icon-[material-symbols--arrow-forward-rounded]'></i>
       </Button>
+    </TitleAndBodyBannerLayout>
+    <ImageAndBodySectionLayout
+      title='XLSX 및 JSON 디렉토리 간 변환'
+      imagePath='/images/screenshots/i18n-xlsx-to-json-directory-template.png'
+      imageDirection='right'
+    >
+      <p class='text-lg'>
+        xlsx 파일에 저장된 다국어 데이터를 json 디렉토리 구조로 변환 및 다운로드하거나, 그 반대로도 동작하는 라이브러리입니다.
+      </p>
+      <p class='text-lg'>
+        디렉토리 구조는 i18next 라이브러리에 맞추어져 있습니다.
+      </p>
+      <p class='text-lg'>
+        npx 명령어를 통한 직접 실행을 지원합니다. 또한 브라우저 및 Node 환경에서의 import를 지원합니다.
+      </p>
+      <div class='flex flex-col items-center justify-center gap-4 mt-4'>
+        <Button
+          onClick='https://github.com/snapperbay4453/i18n-xlsx-to-json-directory/blob/main/README.ko.md'
+        >
+          <span class='truncate'>README로 이동</span>
+          <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
+        </Button>
+      </div>
+    </ImageAndBodySectionLayout>
+    <div class='mt-16'>
+      <XlsxToJsonDirectory />
     </div>
-    <div class='flex justify-center items-center gap-4 mt-4'>
+    <div class='flex justify-center items-center gap-4 mt-16'>
       <Button
         onClick='javascript:history.back()'
         client:visible

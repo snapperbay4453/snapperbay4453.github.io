@@ -35,9 +35,9 @@ const developmentDirectories = getDevelopmentDirectories();
       </Button>
     </TitleAndBodyBannerLayout>
 
-    <div class='mt-8'>
+    <div>
       <BrowserSpecificBox browserName='Samsung' client:visible>
-        <div class='grow flex justify-center items-center gap-2 flex-wrap'>
+        <div class='grow flex justify-center items-center gap-2 flex-wrap mb-16'>
           <Button
             onClick='/articles/blog/help/samsung-internet-dark-mode'
           >
@@ -47,7 +47,7 @@ const developmentDirectories = getDevelopmentDirectories();
         </div>
       </BrowserSpecificBox>
 
-      <div class='flex flex-col items-center mt-16'>
+      <div class='flex flex-col items-center'>
         <p class='text-3xl font-bold'>검색</p>
         <div class='mt-4'>
           <ArticleSearchBar />
@@ -78,7 +78,7 @@ const developmentDirectories = getDevelopmentDirectories();
           <Button
             onClick='/apps'
           >
-            <span class='truncate'>앱</span>
+            <span class='truncate'>웹 애플리케이션</span>
             <i class='icon-[material-symbols--arrow-forward-rounded] text-zinc-100'></i>
           </Button>
           <Button
