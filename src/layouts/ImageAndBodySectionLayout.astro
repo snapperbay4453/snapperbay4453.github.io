@@ -45,7 +45,7 @@ const flexDirection: FlexDirection = (imageDirection === 'right') ? 'right' : 'l
         ></img>
       </div>
     ) : ''}
-    <div class='flex flex-col gap-2 md:basis-1/2'>
+    <div class='flex flex-col gap-2 mx-auto md:basis-1/2'>
       {title ? <p class='text-2xl font-bold text-center'>{title}</p> : ''}
       {subtitle ? <p class='text-xl text-center'>{subtitle}</p> : ''}
       <slot />
