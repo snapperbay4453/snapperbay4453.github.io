@@ -1,4 +1,5 @@
 import Card from '@/components/Card';
+import ImageFader from '@/components/ImageFader';
 
 interface DirectoryCardInnerProps {
   title: string;
@@ -23,15 +24,24 @@ export default function DirectoryCardInner({
         h-20 w-60 max-w-[80vw]
         sm:h-40
       `}>
-        <img
+        <div
           class={`
+            block sm:hidden
             absolute
             -bottom-1 -right-1 h-auto w-14
-            sm:-bottom-4 sm:-right-4 sm:h-auto sm:w-28
-            object-contain
           `}
-          src={imagePath}
-        ></img>
+        >
+          <ImageFader src={imagePath ?? ''} height={52} />
+        </div>
+        <div
+          class={`
+            hidden sm:block
+            absolute
+            sm:-bottom-4 sm:-right-4 sm:h-auto sm:w-28
+          `}
+        >
+          <ImageFader src={imagePath ?? ''} height={104} />
+        </div>
         <div class={`
           absolute
           top-0 left-0 w-40 pl-4 pt-2

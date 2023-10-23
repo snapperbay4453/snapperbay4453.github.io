@@ -1,7 +1,7 @@
 ---
 import RootLayout from '@/layouts/RootLayout.astro';
 import MainLayout from '@/layouts/MainLayout.astro';
-import TitleAndImageBannerLayout from '@/layouts/TitleAndImageBannerLayout.astro';
+import TitleWithImagePrefixLayout from '@/layouts/TitleWithImagePrefixLayout.astro';
 import BottomFloatingLayout from '@/layouts/BottomFloatingLayout.astro';
 import Header from '@/composites/Header.astro';
 import PageScroller from '@/composites/PageScroller.astro';
@@ -27,7 +27,7 @@ const appsLink: AppLink[] = [
 <RootLayout title={`${'웹 애플리케이션'} - snapperbay4453`}>
   <Header />
   <MainLayout>
-    <TitleAndImageBannerLayout
+    <TitleWithImagePrefixLayout
       title='웹 애플리케이션'
       subtitle={`총 ${appsLink.length}개의 웹 애플리케이션이 있습니다.`}
       imagePath='/images/logos/web-application-logo.png'

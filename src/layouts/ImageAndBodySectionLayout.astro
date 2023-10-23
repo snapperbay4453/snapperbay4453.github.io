@@ -1,4 +1,6 @@
 ---
+import ImageFader from '@/components/ImageFader';
+
 type FlexDirection = 'left' | 'right';
 const { title, subtitle, imagePath, imageDirection } = Astro.props;
 const flexDirection: FlexDirection = (imageDirection === 'right') ? 'right' : 'left';
@@ -14,14 +16,11 @@ const flexDirection: FlexDirection = (imageDirection === 'right') ? 'right' : 'l
           w-[75vw] max-w-[360px]
           basis-1/2
         `}>
-          <img
-            class={`
-              h-auto w-auto
-              object-contain
-              rounded-3xl
-            `}
+          <ImageFader
             src={imagePath}
-          ></img>
+            height={240}
+            client:only='preact'
+          />
         </div>
       ) : ''}
     </div>
@@ -35,14 +34,11 @@ const flexDirection: FlexDirection = (imageDirection === 'right') ? 'right' : 'l
         h-[240px] min-h-[240px]
         shrink-0
       `}>
-        <img
-          class={`
-            h-auto w-auto
-            object-contain
-            rounded-3xl
-          `}
+        <ImageFader
           src={imagePath}
-        ></img>
+          height={240}
+          client:only='preact'
+        />
       </div>
     ) : ''}
     <div class='flex flex-col gap-2 mx-auto sm:basis-1/2'>
@@ -57,14 +53,11 @@ const flexDirection: FlexDirection = (imageDirection === 'right') ? 'right' : 'l
         h-[240px] min-h-[240px]
         shrink-0
       `}>
-        <img
-          class={`
-            h-auto w-auto
-            object-contain
-            rounded-3xl
-          `}
+        <ImageFader
           src={imagePath}
-        ></img>
+          height={240}
+          client:only='preact'
+        />
       </div>
     ) : ''}
   </div>  
