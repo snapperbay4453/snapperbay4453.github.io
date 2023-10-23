@@ -40,7 +40,7 @@ export default function ImageFader({
         } ${
           loaded ? 'opacity-100' : 'opacity-0'
         }`}
-        style={{ height: `${height}px`, width: width ? `${width}px` : 'auto' }}
+        style={{ maxHeight: `${height}px`, maxWidth: width ? `${width}px` : 'auto' }}
       >
         <img
           class={`
@@ -52,7 +52,6 @@ export default function ImageFader({
           height={height}
           width={width ?? 'auto'}
           onLoad={handleImageLoad}
-          loading='lazy'
           decoding='async'
         />
       </div>
