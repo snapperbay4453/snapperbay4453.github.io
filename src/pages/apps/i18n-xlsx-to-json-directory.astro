@@ -18,13 +18,22 @@ import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
     <TitleAndBodyBannerLayout
       title='i18n-xlsx-to-json-directory'
     >
-      <Button
-        onClick='https://github.com/snapperbay4453/i18n-xlsx-to-json-directory'
-        client:visible
-      >
-        <span class='truncate'>GitHub 리포지토리</span>
-        <i class='icon-[material-symbols--arrow-forward-rounded]'></i>
-      </Button>
+      <div class='flex flex-col gap-4'>
+        <Button
+          onClick='https://github.com/snapperbay4453/i18n-xlsx-to-json-directory'
+          client:visible
+        >
+          <span class='truncate'>GitHub 리포지토리</span>
+          <i class='icon-[material-symbols--arrow-forward-rounded]'></i>
+        </Button>
+        <Button
+          onClick='https://www.npmjs.com/package/i18n-xlsx-to-json-directory'
+          client:visible
+        >
+          <span class='truncate'>npm 레지스트리</span>
+          <i class='icon-[material-symbols--arrow-forward-rounded]'></i>
+        </Button>
+      </div>
     </TitleAndBodyBannerLayout>
     <ImageAndBodySectionLayout
       title='XLSX 및 JSON 디렉토리 간 변환'
@@ -38,7 +47,7 @@ import FloatingActionButtonGroup from '@/components/FloatingActionButtonGroup';
         디렉토리 구조는 i18next 라이브러리에 맞추어져 있습니다.
       </p>
       <p class='text-lg'>
-        npx 명령어를 통한 직접 실행을 지원합니다. 또한 브라우저 및 Node 환경에서의 import를 지원합니다.
+        npx 명령어를 통한 직접 실행을 지원합니다. 또한 브라우저 및 node.js 환경에서의 import를 지원합니다.
       </p>
       <div class='flex flex-col items-center justify-center gap-4 mt-4'>
         <Button
