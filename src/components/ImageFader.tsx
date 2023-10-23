@@ -36,7 +36,7 @@ export default function ImageFader({
       <div
         class={`
         ${
-          fade ? 'transition-all duration-1000' : ''
+          fade ? 'transition-all duration-500' : ''
         } ${
           loaded ? 'opacity-100' : 'opacity-0'
         }`}
@@ -59,7 +59,7 @@ export default function ImageFader({
       <div class={`
         absolute top-0 bottom-0 left-0 right-0 flex justify-center items-center 
         ${
-          fade ? 'transition-all duration-1000' : ''
+          fade ? 'transition-all duration-500' : ''
         } ${
           loadingIcon && rendered && !loaded ? 'delay-500' : ''
         } ${

@@ -31,16 +31,24 @@ export default function DirectoryCardInner({
             -bottom-1 -right-1 h-auto w-14
           `}
         >
-          <ImageFader src={imagePath ?? ''} height={52} />
+          <ImageFader
+            src={imagePath ?? ''}
+            height={52}
+            rounded={false}
+          />
         </div>
         <div
           class={`
             hidden sm:block
             absolute
-            sm:-bottom-4 sm:-right-4 sm:h-auto sm:w-28
+            sm:-bottom-2 sm:-right-2 sm:h-auto sm:w-28
           `}
         >
-          <ImageFader src={imagePath ?? ''} height={104} />
+          <ImageFader
+            src={imagePath ?? ''}
+            height={104}
+            rounded={false}
+          />
         </div>
         <div class={`
           absolute
