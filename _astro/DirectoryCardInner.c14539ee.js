@@ -1,4 +1,4 @@
-import{o as r}from"./jsxRuntime.module.5efcb3d3.js";import s from"./ImageFader.a0d490cd.js";import"./preact.module.ac6080a5.js";import"./hooks.module.c1775b87.js";function d({children:o,onClick:e}){const t=()=>r("div",{class:`
+import{o as r}from"./jsxRuntime.module.5efcb3d3.js";import s from"./ImageFader.d29dddd4.js";import"./preact.module.ac6080a5.js";import"./hooks.module.c1775b87.js";function d({children:o,onClick:e}){const t=()=>r("div",{class:`
           relative border-2 border-zinc-200 dark:border-zinc-800 rounded-3xl
           hover:bg-zinc-200 dark:hover:bg-zinc-800
           cursor-pointer
