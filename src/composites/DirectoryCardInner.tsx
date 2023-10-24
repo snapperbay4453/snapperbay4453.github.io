@@ -56,12 +56,12 @@ export default function DirectoryCardInner({
           sm:top-0 sm:left-0 sm:w-40 sm:pl-4 sm:pt-4
         `}>
           <span
-            class='block text-xl sm:text-2xl font-bold'
+            class='block text-xl sm:text-2xl font-bold break-keep'
           >
             {title}
           </span>
           <span
-            class='block text-lg sm:text-xl font-bold'
+            class='block text-lg sm:text-xl font-bold break-keep'
           >
             {description}
           </span>
