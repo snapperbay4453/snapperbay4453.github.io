@@ -18,4 +18,4 @@ import{o as r}from"./jsxRuntime.module.5efcb3d3.js";import s from"./ImageFader.d
           absolute
           top-0 left-0 w-40 pl-4 pt-2
           sm:top-0 sm:left-0 sm:w-40 sm:pl-4 sm:pt-4
-        `,children:[r("span",{class:"block text-xl sm:text-2xl font-bold",children:o}),r("span",{class:"block text-lg sm:text-xl font-bold",children:e})]})]})})}export{m as default};
+        `,children:[r("span",{class:"block text-xl sm:text-2xl font-bold break-keep",children:o}),r("span",{class:"block text-lg sm:text-xl font-bold break-keep",children:e})]})]})})}export{m as default};
