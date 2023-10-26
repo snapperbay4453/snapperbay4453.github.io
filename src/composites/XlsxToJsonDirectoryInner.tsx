@@ -12,15 +12,23 @@ export default function HeaderInner() {
   const [xlsxFilename, setXlsxFilename] = useState<string>();
   const [jsonZipFilename, setJsonZipFilename] = useState<string>();
 
-  const downloadI18nJsonZip = () => {
+  const downloadI18nJsonZip = async () => {
     if(xlsxFileInputRef?.current) {
-      convertXlsxToJsonZip((xlsxFileInputRef.current.files ?? [])[0]);
+      try {
+        await convertXlsxToJsonZip((xlsxFileInputRef.current.files ?? [])[0]);
+      } catch(e) {
+        alert('변환 중 오류가 발생했습니다. 파일이 손상되었는지 확인해주세요.');
+      }
     }
   };
 
-  const downloadI18nXlsx = () => {
+  const downloadI18nXlsx = async () => {
     if(jsonZipFileInputRef?.current) {
-      convertJsonZipToXlsx((jsonZipFileInputRef.current.files ?? [])[0]);
+      try {
+        await convertJsonZipToXlsx((jsonZipFileInputRef.current.files ?? [])[0]);
+      } catch(e) {
+        alert('변환 중 오류가 발생했습니다. 파일이 손상되었는지 확인해주세요.');
+      }
     }
   };
 
@@ -51,6 +59,7 @@ export default function HeaderInner() {
           ref={xlsxFileInputRef}
           class='sr-only'
           type='file'
+          accept='.xlsx'
           onchange={() => setXlsxFilename((xlsxFileInputRef.current?.files ?? [])[0]?.name)}
         />
         {xlsxFilename && (
@@ -80,6 +89,7 @@ export default function HeaderInner() {
           ref={jsonZipFileInputRef}
           class='sr-only'
           type='file'
+          accept='.zip'
           onchange={() => setJsonZipFilename((jsonZipFileInputRef.current?.files ?? [])[0]?.name)}
         />
         {jsonZipFilename && (
